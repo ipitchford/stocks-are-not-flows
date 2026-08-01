@@ -1,0 +1,571 @@
+% Self-contained notation; include this file after \appendix in the main paper.
+\section{Identification and stock--flow accounting results}
+\label{app:identification-theory}
+
+\subsection{Scope, novelty, and assurance boundary}
+\label{app:scope}
+
+This appendix states the mathematical results used to interpret the empirical
+design. The rank identities, projection arguments, linear-programming
+characterisation, and stock--flow inequalities below are standard consequences
+of finite-dimensional linear algebra, convex analysis, and accounting. We do
+not claim them as new theorems. The housing-specific contribution is instead
+the disciplined application of these results to a prospectively frozen observation
+map, the separation of stocks from gross flows, and the use of explicit
+response sets and provenance gates before attaching an empirical
+interpretation.
+
+Nothing in this appendix supplies a numerical bound for England. In
+particular, a response column used in a design audit is not thereby established
+as a historical response, a causal impulse response, or a transportable
+elasticity. Any empirical interval requires independently sourced response
+sets, declared population and time transport assumptions, and a separate
+measurement audit. The propositions below describe what follows
+\emph{conditional on} their stated matrices and restrictions.
+
+\subsection{Linear response setup}
+\label{app:linear-setup}
+
+Let \(y\in\mathbb R^m\) denote an observed vector of moments. The exact linear
+response model is
+\begin{equation}
+  y=f\beta+N\gamma,
+  \label{eq:linear-response}
+\end{equation}
+where \(f\in\mathbb R^m\) is the response column for the focal mechanism,
+\(\beta\in\mathbb R\) is its coefficient,
+\(N\in\mathbb R^{m\times k}\) collects admitted nuisance and rival response
+columns, and \(\gamma\in\mathbb R^k\) contains their coefficients. Zero or
+linearly dependent columns of \(N\) are allowed. Unless restrictions are
+introduced explicitly, \(\gamma\) is unrestricted.
+
+The phrase \emph{identified against the admitted span} is deliberate. It is a
+statement about the columns included in \(N\), not a guarantee that all
+economically relevant mechanisms have been included. Enlarging \(N\) can
+remove identification; validating the membership of \(N\) is therefore a
+substantive part of the empirical design rather than a purely numerical step.
+
+\subsection{A common time path cannot create a new identifying direction}
+\label{app:common-path}
+
+Suppose \(a_j\in\mathbb R^q\) is the cross-moment loading for mechanism \(j\),
+and all mechanisms are multiplied by the same time path
+\(h\in\mathbb R^T\). With moments stacked by date, the corresponding design is
+\begin{equation}
+  D=h\otimes A,
+  \qquad
+  A=\begin{bmatrix}a_1&\cdots&a_p\end{bmatrix}
+  \in\mathbb R^{q\times p}.
+  \label{eq:common-path-design}
+\end{equation}
+
+\paragraph{Proposition A.1 (common-path Kronecker rank).}
+If \(h\neq0\), then
+\begin{equation}
+  \operatorname{rank}(h\otimes A)=\operatorname{rank}(A).
+  \label{eq:kronecker-rank}
+\end{equation}
+If \(h=0\), the rank is zero. Consequently, repeating a common ramp or other
+common scalar path over time does not separate mechanisms whose cross-moment
+loadings were already linearly dependent.
+
+\paragraph{Proof.}
+Regard \(h\) as a \(T\times1\) matrix. The rank identity for a Kronecker
+product gives
+\[
+  \operatorname{rank}(h\otimes A)
+  =\operatorname{rank}(h)\operatorname{rank}(A).
+\]
+For nonzero \(h\), \(\operatorname{rank}(h)=1\); for \(h=0\), it is zero.
+Equivalently, if \(Ac=0\), then
+\((h\otimes A)c=h\otimes(Ac)=0\). Conversely, when \(h\neq0\), select an
+index \(t\) with \(h_t\neq0\). The \(t\)-th \(q\)-row block of
+\((h\otimes A)c=0\) is \(h_tAc=0\), so \(Ac=0\). Thus the two designs have
+the same column null space and, for \(h\neq0\), the same rank.
+\(\square\)
+
+\paragraph{Housing-specific interpretation.}
+In a housing application, imposing a common temporal ramp on wealth, credit,
+supply, or demographic response signatures can add observations without
+adding an identifying direction. A longer common path may improve precision
+under a valid stochastic model, but it cannot by itself resolve mechanism
+collinearity. This conclusion concerns the imposed design and does not assert
+that the mechanisms truly share a common path in England.
+
+\subsection{Point identification and its dual certificate}
+\label{app:point-identification}
+
+Point identification here means uniqueness of \(\beta\) among all coefficient
+pairs satisfying equation~\eqref{eq:linear-response}. It is not a causal claim
+and does not address misspecification.
+
+\paragraph{Proposition A.2 (focal identification against an unrestricted nuisance span).}
+Assume that equation~\eqref{eq:linear-response} is feasible. The focal
+coefficient \(\beta\) is unique for every feasible \(y\) if and only if
+\begin{equation}
+  f\notin\operatorname{col}(N).
+  \label{eq:outside-span}
+\end{equation}
+
+\paragraph{Proof.}
+Let \((\beta_1,\gamma_1)\) and \((\beta_2,\gamma_2)\) generate the same \(y\).
+Their difference satisfies
+\begin{equation}
+  f(\beta_1-\beta_2)+N(\gamma_1-\gamma_2)=0.
+  \label{eq:coefficient-difference}
+\end{equation}
+If \(f\notin\operatorname{col}(N)\), equation
+\eqref{eq:coefficient-difference} cannot hold with
+\(\beta_1-\beta_2\neq0\); hence \(\beta_1=\beta_2\).
+
+Conversely, if \(f\in\operatorname{col}(N)\), choose \(a\) such that
+\(f=Na\). From any feasible pair \((\beta,\gamma)\), the continuum
+\begin{equation}
+  (\beta+t,\;\gamma-ta),\qquad t\in\mathbb R,
+  \label{eq:observational-equivalence-path}
+\end{equation}
+generates the same \(y\). Thus \(\beta\) is not unique.
+\(\square\)
+
+The unrestricted-nuisance qualification is essential. Sign, box, shape, or
+cross-equation restrictions on \(\gamma\) can shrink the feasible values of
+\(\beta\), possibly to a singleton, even when \(f\in\operatorname{col}(N)\).
+Such a conclusion is identification by the stated restrictions and must be
+reported as such.
+
+\paragraph{Proposition A.3 (dual discriminator equivalence).}
+The following statements are equivalent:
+\begin{enumerate}
+  \item \(f\notin\operatorname{col}(N)\);
+  \item there exists \(d\in\mathbb R^m\) such that
+        \(d^{\mathsf T}N=0\) and \(d^{\mathsf T}f=1\).
+\end{enumerate}
+When they hold, \(\beta=d^{\mathsf T}y\) in the exact model.
+
+\paragraph{Proof.}
+Let \(P_N\) be the Euclidean orthogonal projector onto
+\(\operatorname{col}(N)\), and define \(r=(I-P_N)f\). If
+\(f\notin\operatorname{col}(N)\), then \(r\neq0\),
+\(N^{\mathsf T}r=0\), and
+\[
+  r^{\mathsf T}f
+  =r^{\mathsf T}(P_Nf+r)
+  =r^{\mathsf T}r>0.
+\]
+Therefore \(d=r/(r^{\mathsf T}r)\) has the required properties. Conversely,
+if \(f=Na\) for some \(a\), then every \(d\) satisfying
+\(d^{\mathsf T}N=0\) also satisfies \(d^{\mathsf T}f=d^{\mathsf T}Na=0\),
+so no unit-loading discriminator exists. Finally, multiplying
+equation~\eqref{eq:linear-response} by \(d^{\mathsf T}\) yields
+\(d^{\mathsf T}y=\beta\).
+\(\square\)
+
+The vector \(d\) is a constructive diagnostic: it identifies the contrast of
+observed moments that annihilates every admitted nuisance column. It is not a
+substantive validation of those columns. A discriminator can disappear when a
+new, credible rival response is added to \(N\).
+
+\subsection{Observation maps and missing-coordinate loss}
+\label{app:observation-map}
+
+Let \(y^*\in\mathbb R^r\) be a latent or more richly measured response,
+\begin{equation}
+  y^*=f^*\beta+N^*\gamma,
+  \label{eq:latent-response}
+\end{equation}
+and let the available observations be \(y=My^*\) for a known linear map
+\(M\in\mathbb R^{m\times r}\). The observed response columns are then
+\(Mf^*\) and \(MN^*\).
+
+\paragraph{Proposition A.4 (identification after an observation map).}
+Under unrestricted nuisance coefficients, the focal coefficient is identified
+from the observed vector if and only if
+\begin{equation}
+  Mf^*\notin\operatorname{col}(MN^*).
+  \label{eq:observed-identification}
+\end{equation}
+Equivalently, observed identification fails if and only if there exists
+\(a\in\mathbb R^k\) such that
+\begin{equation}
+  f^*-N^*a\in\ker(M).
+  \label{eq:kernel-equivalence}
+\end{equation}
+Moreover,
+\(\operatorname{rank}(M[f^*\;N^*])
+\leq\operatorname{rank}([f^*\;N^*])\): an observation map can preserve or
+destroy design rank, but cannot increase the rank of the latent design.
+
+\paragraph{Proof.}
+Apply Proposition~A.2 to the observed equation
+\[
+  y=(Mf^*)\beta+(MN^*)\gamma.
+\]
+Failure of condition~\eqref{eq:observed-identification} means that
+\(Mf^*=MN^*a\) for some \(a\), which is exactly
+\(M(f^*-N^*a)=0\), proving equation~\eqref{eq:kernel-equivalence}. The rank
+inequality is the standard inequality
+\(\operatorname{rank}(MD)\leq\operatorname{rank}(D)\), applied to
+\(D=[f^*\;N^*]\).
+\(\square\)
+
+If \(M\) selects observed coordinates, \(\ker(M)\) consists of vectors
+supported on missing coordinates. Proposition~A.4 then makes the loss
+mechanism explicit: a focal-minus-rival contrast may be visible in the richer
+system but live entirely in coordinates absent from the public observation
+map. Observing more dates of the same mapped coordinates need not recover that
+contrast.
+
+\paragraph{Housing-specific interpretation.}
+Candidate missing bridges include a mapping from property transitions to
+household tenure, a mapping from ownership or letting states into measured
+prices, and a mapping from lifecycle groups into the published age categories.
+The proposition says only that such coordinates \emph{could} distinguish
+mechanisms. It does not establish that a particular restricted-access linkage
+is accurate, licence-compatible, or sufficient, nor that it would distinguish
+wealth from every admitted rival.
+
+\subsection{Weighted least-squares profile geometry}
+\label{app:weighted-profile}
+
+For noisy or overidentified moments, let \(W\in\mathbb R^{m\times m}\) be
+symmetric positive definite and consider
+\begin{equation}
+  Q(\beta,\gamma)
+  =(y-f\beta-N\gamma)^{\mathsf T}
+    W(y-f\beta-N\gamma).
+  \label{eq:weighted-objective}
+\end{equation}
+Let \(C\) be any nonsingular square root satisfying \(C^{\mathsf T}C=W\),
+write \(\widetilde y=Cy\), \(\widetilde f=Cf\), and
+\(\widetilde N=CN\), and let \(P_{\widetilde N}\) be the Euclidean
+orthogonal projector onto \(\operatorname{col}(\widetilde N)\). Define
+\begin{equation}
+  r_y=(I-P_{\widetilde N})\widetilde y,
+  \qquad
+  r_f=(I-P_{\widetilde N})\widetilde f.
+  \label{eq:weighted-residuals}
+\end{equation}
+
+\paragraph{Proposition A.5 (profile objective and curvature).}
+With \(\gamma\) unrestricted,
+\begin{equation}
+  Q_p(\beta)
+  :=\inf_{\gamma}Q(\beta,\gamma)
+  =\lVert r_y-\beta r_f\rVert_2^2.
+  \label{eq:profile-objective}
+\end{equation}
+If \(r_f\neq0\), then
+\begin{align}
+  \widehat\beta
+    &=\frac{r_f^{\mathsf T}r_y}{r_f^{\mathsf T}r_f},
+    \label{eq:profile-beta}\\
+  Q_p(\beta)
+    &=Q_p(\widehat\beta)
+      +(r_f^{\mathsf T}r_f)(\beta-\widehat\beta)^2.
+    \label{eq:profile-quadratic}
+\end{align}
+If \(r_f=0\), the profile is flat:
+\(Q_p(\beta)=\lVert r_y\rVert_2^2\) for all \(\beta\). Furthermore,
+\(r_f=0\) if and only if \(f\in\operatorname{col}(N)\).
+
+\paragraph{Proof.}
+For fixed \(\beta\), minimizing equation~\eqref{eq:weighted-objective} over
+\(\gamma\) is Euclidean least squares after premultiplication by \(C\). Its
+residual is the projection of \(\widetilde y-\beta\widetilde f\) onto the
+orthogonal complement of \(\operatorname{col}(\widetilde N)\), giving
+equation~\eqref{eq:profile-objective}. Expanding the square and completing it
+in \(\beta\) gives equations~\eqref{eq:profile-beta} and
+\eqref{eq:profile-quadratic} when \(r_f\neq0\). When \(r_f=0\), the term
+depending on \(\beta\) vanishes. Finally, because \(C\) is nonsingular,
+\(Cf\in\operatorname{col}(CN)\) if and only if
+\(f\in\operatorname{col}(N)\).
+\(\square\)
+
+Thus \(r_f^{\mathsf T}r_f\) is the profile curvature, or design information,
+for the focal coefficient against the admitted span. Near-zero curvature
+warns that apparently precise coefficient estimates may be dominated by
+scaling, regularisation, or restrictions. The formula is an algebraic
+property of the supplied \(f,N,W\); it is not evidence that \(W\) is the true
+sampling precision or that \(\widehat\beta\) is causal.
+
+\subsection{Sharp conditional focal sets}
+\label{app:sharp-set}
+
+Now impose explicit bounds. Let
+\begin{equation}
+  \Gamma=\{\gamma\in\mathbb R^k:\ell\leq\gamma\leq u\},
+  \qquad
+  B=[b_L,b_U],
+  \label{eq:box-sets}
+\end{equation}
+where inequalities are componentwise and either focal endpoint may be
+infinite. The conditional feasible set and its focal projection are
+\begin{align}
+  \Theta(y)
+    &=\{(\beta,\gamma):
+          y=f\beta+N\gamma,\ \beta\in B,\ \gamma\in\Gamma\},
+    \label{eq:conditional-feasible-set}\\
+  \mathcal I_\beta(y)
+    &=\{\beta:\text{there exists }\gamma
+          \text{ with }(\beta,\gamma)\in\Theta(y)\}.
+    \label{eq:focal-identified-set}
+\end{align}
+
+\paragraph{Proposition A.6 (sharp set and linear-program endpoints).}
+The set \(\mathcal I_\beta(y)\) is an interval, a ray, the real line, a
+singleton, or the empty set. When nonempty, its lower and upper endpoints in
+the extended real line are the values of the linear programs
+\begin{align}
+  \underline\beta
+    &=\inf_{\beta,\gamma}\ \beta
+      &&\text{subject to }(\beta,\gamma)\in\Theta(y),
+    \label{eq:lower-lp}\\
+  \overline\beta
+    &=\sup_{\beta,\gamma}\ \beta
+      &&\text{subject to }(\beta,\gamma)\in\Theta(y).
+    \label{eq:upper-lp}
+\end{align}
+Every finite optimum is attained. These endpoints are sharp conditional on
+the equality, the columns, and the bounds: every value between two feasible
+finite endpoint values is generated by a feasible coefficient pair.
+
+\paragraph{Proof.}
+The set \(\Theta(y)\) is a polyhedron because it is defined by linear
+equalities and inequalities. Its projection onto the scalar \(\beta\)-axis is
+also a polyhedron, hence has one of the listed forms. Linear objectives over a
+nonempty polyhedron attain any finite optimum, giving
+equations~\eqref{eq:lower-lp}--\eqref{eq:upper-lp}. If
+\((\beta_L,\gamma_L)\) and \((\beta_U,\gamma_U)\) are feasible endpoint
+witnesses, then for any \(\lambda\in[0,1]\),
+\[
+  \lambda(\beta_L,\gamma_L)
+  +(1-\lambda)(\beta_U,\gamma_U)
+\]
+is feasible by convexity. Its focal coordinate covers every value between
+\(\beta_L\) and \(\beta_U\), proving sharpness.
+\(\square\)
+
+An empty set is not a failed optimisation to be silently repaired: it rejects
+the joint equality and restrictions. An unbounded endpoint is likewise a
+scientific result. Most importantly, mathematical sharpness is conditional
+sharpness. Boxes chosen after inspecting \(y\), response columns calibrated
+from the focal column, or rival sets omitted for convenience do not become
+empirically credible merely because the endpoint programs are solved exactly.
+
+\subsection{Why stocks do not identify gross tenure flows}
+\label{app:stock-flow}
+
+Let \(x_{jt}\geq0\) be the level of the stock in tenure state \(j\) at the
+start of period \(t\), for \(j=1,\ldots,K\). Let \(F_{ij,t}\geq0\) be the
+number of units transitioning internally from state \(i\) to state \(j\),
+\(i\neq j\), and let \(q_{jt}\) collect net external additions to state \(j\)
+(entries less exits, new supply less removals, and any other declared boundary
+terms). The accounting identity is
+\begin{equation}
+  d_{jt}
+  :=x_{j,t+1}-x_{jt}-q_{jt}
+  =\sum_{i\neq j}F_{ij,t}-\sum_{k\neq j}F_{jk,t}.
+  \label{eq:stock-flow-accounting}
+\end{equation}
+When all internal states and external boundary terms are consistently
+measured, \(\sum_jd_{jt}=0\).
+
+\paragraph{Proposition A.7 (gross-flow non-identification from stocks).}
+Suppose \(K\geq2\), only the net changes \(d_t\) are observed, and no capacity,
+turnover, or upper-bound restriction is imposed on \(F_t\). If one nonnegative
+flow matrix satisfies equation~\eqref{eq:stock-flow-accounting}, infinitely
+many do. In particular, for any distinct \(a,b\) and any \(c\geq0\), adding
+\(c\) to both \(F_{ab,t}\) and \(F_{ba,t}\) leaves every \(d_{jt}\)
+unchanged. Hence neither total gross internal flow nor the two opposing flows
+of a pair are point-identified by stock changes alone.
+
+\paragraph{Proof.}
+The added \(a\)-to-\(b\) flow subtracts \(c\) from the balance of state \(a\)
+and adds \(c\) to the balance of state \(b\). The added reverse flow does the
+opposite. The net effect is zero in every state, while total gross flow rises
+by \(2c\). Since \(c\) is arbitrary, the observed stock changes admit a
+continuum of observationally equivalent gross flows.
+\(\square\)
+
+\paragraph{Proposition A.8 (sharp lower bound on total internal flow).}
+Assume that \(q_t\) is known, \(\sum_jd_{jt}=0\), and transitions are allowed
+between every pair of distinct states. Let
+\begin{equation}
+  G_t=\sum_i\sum_{j\neq i}F_{ij,t}
+  \label{eq:total-gross-flow}
+\end{equation}
+count each internal transition once. Then
+\begin{equation}
+  G_t\geq
+  \sum_j(d_{jt})_+
+  =\frac12\sum_j\lvert d_{jt}\rvert,
+  \label{eq:gross-flow-lower-bound}
+\end{equation}
+and the bound is sharp. State-specific gross inflow and outflow satisfy
+\begin{equation}
+  \sum_{i\neq j}F_{ij,t}\geq(d_{jt})_+,
+  \qquad
+  \sum_{k\neq j}F_{jk,t}\geq(-d_{jt})_+.
+  \label{eq:state-flow-lower-bounds}
+\end{equation}
+
+\paragraph{Proof.}
+Write \(I_j=\sum_{i\neq j}F_{ij,t}\) and
+\(O_j=\sum_{k\neq j}F_{jk,t}\). Since \(d_j=I_j-O_j\) and both terms are
+nonnegative, \(I_j\geq(d_j)_+\) and \(O_j\geq(-d_j)_+\). Summing the first
+inequality over \(j\) gives \(G_t=\sum_jI_j\geq\sum_j(d_j)_+\). The zero-sum
+condition implies
+\(\sum_j(d_j)_+=\sum_j(-d_j)_+=\frac12\sum_j|d_j|\).
+
+To attain the bound, treat every state with \(d_j<0\) as supplying \(-d_j\)
+units and every state with \(d_j>0\) as demanding \(d_j\) units. Because total
+supply equals total demand and the transition graph is complete, a
+nonnegative transportation plan can send exactly the required amount from
+shrinking to growing states, with no counterflow or cycle. Its total flow is
+\(\sum_j(d_j)_+\).
+\(\square\)
+
+If the transition graph is restricted, equation~\eqref{eq:gross-flow-lower-bound}
+remains a lower bound when a feasible flow exists, but it need not be sharp.
+For two states in a closed system,
+\(d_2=F_{12}-F_{21}\), so
+\(F_{12}\geq(d_2)_+\) and \(F_{21}\geq(-d_2)_+\); even there, the two gross
+flows remain unbounded above without additional restrictions. With three or
+more states, a rise in one state and fall in another generally does not impose
+a positive lower bound on the \emph{direct} flow between that particular pair,
+because the balance can be routed through other states.
+
+Two further qualifications matter in housing data. First, if \(q_t\) is
+unobserved and unrestricted, internal flow need not have a positive lower bound:
+setting \(q_t=x_{t+1}-x_t\) and \(F_t=0\) satisfies the accounting identity.
+If instead \(q_t\) belongs to a declared feasible set \(\mathcal Q_t\), the
+best stock-based lower bound is
+\begin{equation}
+  \inf_{q\in\mathcal Q_t:\,\boldsymbol 1^{\mathsf T}
+         (x_{t+1}-x_t-q)=0}
+  \frac12\lVert x_{t+1}-x_t-q\rVert_1,
+  \label{eq:external-flow-robust-bound}
+\end{equation}
+provided the associated internal-flow problem is feasible. Second, changes in
+tenure \emph{shares} alone do not determine changes in tenure levels when the
+total number of households or dwellings changes. The level denominator and
+the household--dwelling measurement bridge must be specified before applying
+the accounting bounds.
+
+\paragraph{Housing-specific interpretation.}
+An owner-occupation stock decline and a private-rental stock increase are net
+accounting facts, not measurements of gross owner-to-landlord purchases,
+landlord-to-owner sales, or household moves. Applying
+equation~\eqref{eq:gross-flow-lower-bound} requires compatible levels, boundary
+terms, units, geography, and timing. It cannot attribute the residual flow to
+the wealth of buyers without an additional buyer-resource measurement and a
+credible behavioural design.
+
+\subsection{A cautious design value for an additional measurement}
+\label{app:measurement-value}
+
+The preceding results can rank candidate measurements without claiming that a
+dataset has policy or welfare value. Return to the latent columns \(f^*,N^*\).
+For an observation map \(M\) and positive-definite weight \(W\), define the
+focal separation index
+\begin{equation}
+  J(M,W)
+  =\min_{a\in\mathbb R^k}
+    \bigl\|W^{1/2}M(f^*-N^*a)\bigr\|_2^2.
+  \label{eq:separation-index}
+\end{equation}
+This is the squared weighted distance from \(Mf^*\) to
+\(\operatorname{col}(MN^*)\). It is positive exactly when the focal column is
+identified against the admitted nuisance span under \(M\).
+
+Let \((M_0,W_0)\) describe existing moments. A candidate additional
+measurement has map \(H\) and positive-definite weight \(W_H\), with block
+weights used only as a design convention. Define
+\begin{align}
+  J_0
+    &=\min_a
+      \bigl\|W_0^{1/2}M_0(f^*-N^*a)\bigr\|_2^2,
+    \label{eq:old-separation}\\
+  J_1
+    &=\min_a\left\{
+      \bigl\|W_0^{1/2}M_0(f^*-N^*a)\bigr\|_2^2
+      +\bigl\|W_H^{1/2}H(f^*-N^*a)\bigr\|_2^2
+      \right\}.
+    \label{eq:new-separation}
+\end{align}
+
+\paragraph{Proposition A.9 (nonnegative design value of an added coordinate).}
+Under the fixed latent columns, fixed nuisance set, and block-weight convention
+above, \(J_1\geq J_0\). Equality holds if and only if at least one minimiser of
+the old problem also satisfies
+\begin{equation}
+  H(f^*-N^*a)=0.
+  \label{eq:no-new-separation}
+\end{equation}
+In particular, if \(J_0=0\), the additional measurement restores point
+identification against the admitted span if and only if there is no
+\(a\) satisfying both
+\begin{equation}
+  M_0(f^*-N^*a)=0
+  \quad\text{and}\quad
+  H(f^*-N^*a)=0.
+  \label{eq:break-all-equivalences}
+\end{equation}
+
+\paragraph{Proof.}
+For each \(a\), the objective in equation~\eqref{eq:new-separation} is the old
+nonnegative objective plus a nonnegative term. Taking minima therefore gives
+\(J_1\geq J_0\). Both are finite-dimensional positive-semidefinite quadratic
+problems and attain their minima. Equality requires a minimiser of the new
+problem to attain the old minimum while making the added nonnegative term zero;
+this is exactly condition~\eqref{eq:no-new-separation}. When \(J_0=0\), the
+old minimisers are precisely the solutions to the first equality in
+equation~\eqref{eq:break-all-equivalences}. The stacked design has positive
+separation exactly when none of them also satisfies the second equality.
+\(\square\)
+
+Proposition~A.9 defines \emph{design value}, not the expected social value of
+information. It assumes the old and new response columns are correctly
+specified on a common scale, the nuisance set remains fixed, and the new
+measurement does not introduce selection, linkage, or transport error. A
+practical acquisition decision must also account for coverage, sampling error,
+revision, linkage quality, licence constraints, privacy, cost, and the risk that
+a defensible enlargement of \(N^*\) absorbs the apparent new separation.
+
+In the housing application, a candidate measurement is most informative for
+mechanism separation when it observes a coordinate on which every currently
+equivalent focal--rival contrast differs. Buyer-resource links, gross property
+status changes, or household--dwelling reconciliation may be candidates, but
+Proposition~A.9 does not presume that any available dataset measures them well
+or that any one of them is sufficient. The proposition supports a
+value-of-information \emph{design audit}; it does not support an empirical
+England contribution estimate.
+
+\subsection{Implications for the empirical claim ceiling}
+\label{app:claim-ceiling}
+
+The results imply a hierarchy of defensible statements:
+\begin{enumerate}
+  \item A full-rank maintained design establishes only that its maintained
+        columns are algebraically distinct.
+  \item If a credible rival span contains the focal column, unrestricted
+        unique attribution fails, even when the maintained design alone has
+        full rank.
+  \item A nonzero dual discriminator certifies separation only against the
+        currently admitted columns and observation map.
+  \item Box or shape restrictions may deliver a sharp conditional interval,
+        but the interval is empirical only after the restrictions and response
+        sets are independently sourced and transported.
+  \item Stock changes can support accounting lower bounds under declared
+        boundary assumptions; they do not reveal gross flows or buyer wealth.
+  \item Additional data have positive mechanism-separation value only to the
+        extent that they break the relevant observational equivalences after
+        measurement error and an enlarged rival set are considered.
+\end{enumerate}
+
+Accordingly, the formal results justify a pivot from unrestricted unique
+attribution toward partial identification and measurement design. They do not
+reverse a failed identification gate, establish that a particular mechanism
+caused England's tenure changes, or authorise a numerical historical
+contribution bound without the separate empirical response-set package
+described in Section~\ref{app:scope}.

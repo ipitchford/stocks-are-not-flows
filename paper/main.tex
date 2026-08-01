@@ -1,0 +1,644 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs,tabularx,array,longtable}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{microtype}
+\usepackage[round,authoryear]{natbib}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+
+\hypersetup{
+  pdftitle={Stocks Are Not Flows: An Identification Audit of Investor Pressure and Tenure Change in England},
+  pdfauthor={Anonymous},
+  pdfsubject={Public discussion preprint; structural identification audit of English housing tenure},
+  pdfkeywords={housing tenure, private renting, wealth inequality, structural identification, partial identification, reproducible research}
+}
+
+\geometry{margin=1in}
+\linespread{1.18}
+\setlength{\emergencystretch}{3em}
+\graphicspath{{../results/gatea/20260801-open-subset-v2/figures/}}
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{remark}{Remark}
+\newcommand{\col}{\operatorname{col}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\norm}[1]{\left\lVert #1\right\rVert_2}
+\newcommand{\decision}[1]{\texttt{#1}}
+
+\title{\textbf{Stocks Are Not Flows:}\\
+An Identification Audit of Investor Pressure and Tenure Change in England}
+\author{Anonymous}
+\date{1 August 2026\\Public discussion preprint v1.0.0}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Can a rise in wealthy households' demand for housing explain falling owner
+occupation in England? The qualitative mechanism is plausible, but neither its
+direction nor its historical contribution is identified by tenure stocks, house
+prices, rents, aggregate mortgage rates, and net housing supply alone. We turn an
+initial structural project into a prospective identification audit. First, a
+source-level novelty review shows that the broad inequality--housing mechanism,
+endogenous rent--own--landlord choice, and linked owner-to-landlord flow measures
+all have close antecedents. Second, we separate three objects that are often
+conflated: tenure stocks, gross property-use transitions, and mechanism-specific
+resource flows. Third, a prospectively frozen internal fail-fast design evaluates a 57-moment,
+seven-mechanism response system against four deliberately adversarial omitted
+mechanisms. The maintained system is locally full rank at all 64 design points,
+yet three adversarial profiles exclude zero and required observation maps are
+absent. The authorized decision is therefore to stop unique attribution. A
+separate deterministic linear-algebra certificate sharpens the diagnosis: after appending
+the rival responses, the focal top-resource response lies in their span in both
+public and scaled units, so no linear discriminator exists. We then provide a
+general sharp-set formulation under bounded nuisance responses and state the
+measurement condition that new data must satisfy to break the equivalence. A
+hash-pinned public-data layer reproduces seven official series and 43 validation
+checks, including an 11.95 percentage-point fall in owner occupation among
+households whose reference person is aged 25--44 between 2008--09 and 2018--19.
+These accounting facts motivate the question but do not identify its cause. The
+paper's contribution is a reproducible framework for publishing a scientifically
+useful structural non-identification result and a concrete minimum-data agenda.
+\end{abstract}
+
+\noindent\textbf{Keywords:} housing tenure; private renting; wealth inequality;
+structural identification; partial identification; reproducibility.\\
+\textbf{JEL codes:} C18, C52, R21, R31.
+
+\section{Introduction}
+
+The decline of owner occupation among younger and middle-aged households in
+England has invited a compelling narrative. If resources become concentrated at
+the top, wealthy households save a larger share, purchase existing housing, and
+let it to households priced out of ownership. The same transaction may then
+raise the private-rental stock, lower owner occupation, raise prices relative to
+rents, and reinforce measured wealth concentration. This narrative links Gary
+Stevenson's fixed-asset models to a concrete tenure margin
+\citep[esp. pp.~61--62]{stevenson2019}. It is also easy to over-identify.
+
+The empirical difficulty is not that the aggregate trends are invisible. It is
+that the objects needed to identify the mechanism differ from the objects in
+standard public time series. A tenure share is a stock. An owner-occupied home
+sold to a landlord is a gross transition. A wealthy purchaser's incremental
+non-housing resources are a mechanism-specific forcing variable. A fall in the
+first does not reveal the second, and observing the second does not reveal the
+third. Prices create a further simultaneity: housing revaluation raises measured
+property wealth, so a contemporaneous wealth share can move because the proposed
+outcome moved.
+
+This paper asks a deliberately prior question: \emph{what would have to be
+observed, and what restrictions would have to hold, before the historical
+contribution of top-resource pressure could be distinguished from middle-resource
+loss, credit, rates, supply, taxation, demographics, rental segmentation,
+institutional entry, and social-comparison demand?} We answer it with an
+auditable sequence rather than a single fitted model.
+
+The sequence has four parts. First, we conduct a source-level novelty gate. The
+broad sign pattern is occupied: inequality can lower ownership and raise
+price--rent ratios in equilibrium \citep{head2023}; a poor-to-rich resource shift
+can induce wealthy portfolio reallocation into housing, higher prices, and lower
+rent--price returns \citep{zhang2015}; and top-income growth can instead raise
+non-rich housing demand through social comparisons \citep{drechselgrau2026}.
+Close quantitative models already include endogenous tenure and household or
+institutional landlords \citep{moktan2025,albuquerque2025,cima2026,castellanos2024}.
+Moreover, linked Land Registry and rental-listing data have already been used to
+classify investor purchases and owner-to-landlord flows
+\citep{bracke2021,bankofengland2023flows}. We therefore make no priority claim
+for the mechanism, the tenure margin, or the flow concept.
+
+Second, we freeze an ontology and a 57-moment observation schedule before fitting
+the expensive model. The focal primitive is a latent aggregate flow of top
+non-housing resources, not observed saving, a wealth share, or a housing capital
+gain. Direct middle-resource loss and resource-neutral redistribution are separate
+experiments. Every synthetic shock has an explicit closure receipt.
+
+Third, we run a fail-fast identification gate. The maintained seven-column
+response matrix is full rank at 64 design points, but the more demanding
+specificity tests fail. Three of four deliberately constructed rival data-
+generating processes produce a nonzero focal profile, and three economically
+essential stock-to-observation maps remain unimplemented. The gate stops the
+planned structural estimation rather than allowing fit to be mistaken for
+identification. A subsequent span calculation shows that the focal response lies
+in the admitted nuisance span. This is a deterministic statement about the
+synthetic design, not a population false-positive rate or an empirical estimate.
+
+Fourth, we retain what the evidence can support. A public accounting layer
+reproduces exact official-source paths, with immutable source hashes, strict
+spreadsheet schemas, deterministic figures, and a fresh offline replay. We also
+provide a general partial-identification formulation: conditional on a sourced
+response set and bounded nuisance contributions, the focal contribution is the
+projection of a linear feasibility set and can be computed sharply by two linear
+programs. No such empirical response set is presently justified for England, so
+we report the method but no historical interval.
+
+The contribution is consequently an identification audit with a value-of-
+information result. It is positive in three senses. It separates commonly
+conflated estimands; it demonstrates that local full rank can coexist with failure
+against omitted mechanisms; and it converts a stopped structural model into a
+precise acquisition rule for future data. One well-oriented new measurement can
+break a focal--rival equivalence; another stock observation or rescaled version of
+the same aggregate series generally cannot.
+
+\section{From Stevenson's thesis to a testable housing claim}
+\label{sec:stevenson}
+
+\subsection{What the 2019 thesis establishes}
+
+Stevenson's MPhil thesis studies fixed and reproducible assets in stylised
+heterogeneous-agent economies in which asset holdings enter utility
+\citep{stevenson2019}. Its central intuition is that a diminishing marginal
+propensity to consume can make a resource distribution relevant for the price of
+a fixed factor and its effective return. The thesis also recognizes its own
+load-bearing preference restriction. When rich households value land itself, the
+dynamic model can retain the inequality--price relationship. When they instead
+value fungible net worth, reproducible capital and land become direct substitutes
+and the steady-state land price collapses to the standard return-arbitrage relation
+$p=\rho/r$, independent of the distribution parameter in that exercise
+\citep[pp.~48--49]{stevenson2019}.
+
+That negative robustness result is scientifically more informative than a
+mechanical extension of the preferred specification. The thesis does not estimate
+a tenure transition, observe a landlord purchase, model an empirically disciplined
+housing-supply margin, or identify a UK historical contribution. Its final chapter
+instead proposes a three-tier extension in which high asset prices may induce a
+middle class with small holdings to dissave to the rich
+\citep[pp.~61--62]{stevenson2019}. Our project began from
+that proposal, but the novelty and identification gates change what can responsibly
+be claimed.
+
+\subsection{Why a direct ``three-class model'' is not the residual novelty}
+
+Since 2019, and in some cases before it, adjacent literatures have professionalised
+nearly every broad component. Non-homothetic saving links inequality to lower
+rates and higher debt \citep{mian2021}; falling rates can in turn affect the upper
+tail of wealth \citep{gomez2024}. Housing models contain heterogeneous quality,
+search, rent--own choice, household landlords, institutional investors, credit
+constraints, and endogenous or fixed construction
+\citep{head2023,greenwald2024,cima2026}. Zhang's model is especially close to the
+portfolio-pressure story: wealthy households rebalance from bonds into housing
+after an inequality shift, while less-resourced non-owners enter later
+\citep{zhang2015}. These antecedents validate the economic question but occupy the
+generic mechanism.
+
+The residual object is narrower: a transparent test of whether an independently
+defined top non-housing resource flow can be distinguished from a direct loss of
+middle resources and from named rival mechanisms under England's available
+observation map. This object remains useful even when the answer is no. It is not
+a claim to be the first study of housing flows: \citet{bracke2021} links transactions
+to subsequent rental listings, while the Bank of England classifies owner-to-
+landlord, landlord-to-owner, and inter-landlord flows using a longer listing window
+\citep{bankofengland2023flows}. Those sources also reveal why a public aggregate
+replication is insufficient: the classifications depend on proprietary listing
+links, are lagged and revisable, and do not observe purchaser non-housing resources.
+
+\begin{table}[t]
+\centering
+\caption{Novelty boundary after the source-level gate}
+\label{tab:novelty}
+\small
+\begin{tabularx}{\textwidth}{@{}p{0.24\textwidth}X p{0.25\textwidth}@{}}
+\toprule
+Object & Closest occupied ground & Permitted residual claim \\
+\midrule
+Inequality lowers ownership and raises price--rent & Equilibrium sign result in \citet{head2023}; supply-regulation and demand-side rivals & No new sign claim; test distinguishability of a separately defined forcing variable \\
+Rich portfolio pressure raises house prices & Fixed-supply heterogeneous-agent mechanism in \citet{zhang2015} & No new mechanism claim; audit top-resource versus middle-resource and rival equivalence \\
+Endogenous rent, own, and landlord choice & UK and European structural models including \citet{moktan2025}, \citet{albuquerque2025}, and \citet{cima2026} & No architecture claim; state which observation equations identify which contribution \\
+Owner-to-landlord property flows & Transaction--listing links in \citet{bracke2021} and \citet{bankofengland2023flows} & No first-flow claim; distinguish flow classification from purchaser-resource identification \\
+Historical England mechanism magnitude & No source located in the bounded review jointly observes the required resource and property-flow objects & Candidate only after an independently sourced response set; currently stopped \\
+\bottomrule
+\end{tabularx}
+\parbox{0.96\textwidth}{\footnotesize
+\emph{Notes:} The review establishes collisions and a bounded residual; it is
+not proof of worldwide historical priority. Composite novelty by accumulation
+of familiar features is not asserted.}
+\end{table}
+
+\section{Stocks, gross transitions, and resource contributions}
+\label{sec:ontology}
+
+\subsection{The accounting non-equivalence}
+
+Let $O_t$, $L_t$, and $S_t$ denote owner-occupied, privately let, and social or
+other housing-use stocks at date $t$. Abstracting temporarily from construction,
+demolition, vacancy, and reclassification, the change in privately let stock is
+\begin{equation}
+  L_t-L_{t-1}=F^{O\rightarrow L}_t-F^{L\rightarrow O}_t.
+  \label{eq:stockflow}
+\end{equation}
+The observed net change does not identify either gross flow. For every $k_t\geq0$,
+the pair $(F^{O\rightarrow L}_t+k_t,F^{L\rightarrow O}_t+k_t)$ yields the same
+stock path. Adding landlord-to-landlord transactions changes turnover without
+changing the tenure stock. New construction, conversions, demolitions, vacancy,
+and household--dwelling denominator differences enlarge the equivalence class.
+
+Even a correctly classified $O\rightarrow L$ purchase does not identify the
+proposed resource mechanism. The purchaser may be a leveraged household landlord,
+an existing cash landlord, a company, an institutional vehicle, or an owner
+temporarily letting a former residence. Its finance may reflect current saving,
+inheritance, capital gains, mortgage credit, retained rent, or asset substitution.
+The resource flow and the property-use transition are therefore distinct latent
+coordinates.
+
+\subsection{The focal primitive and closure}
+
+We write $z_T$ for a latent aggregate increment to top non-housing resources and
+$z_M$ for a middle-resource primitive. Neither is a contemporaneous wealth share.
+Three experiments have different economic meanings:
+\begin{align*}
+  D1 &: \quad \Delta z_T>0,\quad \Delta z_M=0, \\
+  D2 &: \quad \Delta z_T=0,\quad \Delta z_M<0, \\
+  E0 &: \quad \Delta z_T=-\Delta z_M>0.
+\end{align*}
+$D1$ and $D2$ require an explicit external or compositional closure and are
+diagnostic derivatives, not closed-economy redistributions. Their derivative sum
+represents $E0$ only locally, on the same differentiable equilibrium branch. This
+distinction prevents ``pressure from above'' from being defined mechanically as
+``impoverishment below.''
+
+The measurement bridge also decomposes a non-housing wealth-stock change into
+active accumulation, asset returns, transfers, debt changes, valuation, and
+reclassification. Pre-period ranks are fixed locally. Property wealth and housing-
+secured debt are excluded from the focal primitive. These restrictions block the
+most direct reverse-causality channel but do not create an observed $z_T$ series.
+
+\section{Public evidence and prospectively frozen scope}
+\label{sec:data}
+
+\subsection{Source boundary}
+
+The public layer covers an England 2008--2019 core, while retaining each
+publisher's stated geography. Seven official sources are pinned by exact URL,
+filename, media type, byte ceiling, and SHA-256: English Housing Survey (EHS)
+broad tenure, HM Land Registry HPI, separate ONS IPHRP and PIPR rent-index
+segments, dwelling stock, components of net housing supply, and Bank of England
+quoted mortgage rates \citep{ehs2025,hmlr2026,onsiphrp2025,onspipr2026,
+mhclgstock2026,mhclgsupply2025,boequoted2026}. The run rejects unexpected redirects,
+hash drift, schema drift, duplicate periods, missing registered support, and
+non-positive index or rate domains.
+
+The open subset deliberately omits outputs that need a different assurance tier:
+EHS design covariance and fine tenure, Wealth and Assets Survey rank-by-tenure
+microdata, an audited Price Paid Data geography concordance, source-backed rival
+response sets, and a direct purchaser-resource link. Historical IPHRP and current
+PIPR are never level-spliced. The HPI/PIPR ratio is a normalized relative index,
+not a landlord yield. Quoted mortgage products are UK offers, not realized England
+borrowing costs.
+
+\begin{table}[t]
+\centering
+\caption{The observation hierarchy and its claim ceiling}
+\label{tab:hierarchy}
+\small
+\begin{tabularx}{\textwidth}{@{}p{0.20\textwidth}p{0.25\textwidth}X@{}}
+\toprule
+Layer & Example & Maximum interpretation \\
+\midrule
+Stock & EHS owner and private-renter shares & Current weighted tenure composition; no gross transition \\
+Net stock flow & Net additions divided by beginning dwelling stock & Change in the dwelling stock; no purchaser or tenure identity \\
+Gross property-use flow & Transaction linked to pre/post rental listing & Classified $O\to L$, $L\to O$, or $L\to L$ transition under a stated window \\
+Purchaser finance & Mortgage purpose, cash status, portfolio or legal form & Financing or buyer class; not top non-housing resources \\
+Mechanism contribution & Response to an exogenous or bounded resource primitive & Structural or causal contribution only under the corresponding identifying assumptions \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Previously viewed outcomes and descriptive status}
+
+Feasibility work viewed the EHS endpoints and the 2015--2019 HPI/PIPR endpoint
+before the final implementation. These are therefore reproduced accounting facts,
+not untouched directional tests. No uncertainty interval is attached to the EHS
+age-band shares because the open table does not provide the required survey-design
+covariance. The analysis computes shares from unrounded weighted counts and checks
+their closure against a common denominator.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.84\textwidth]{figure_1_tenure_25_44.pdf}
+  \caption{Broad tenure among English households whose household reference
+  person is aged 25--44. Points are official weighted estimates reconstructed
+  from unrounded counts. The open table does not support design-based confidence
+  intervals for the combined age group.}
+  \label{fig:tenure}
+\end{figure}
+
+Between 2008--09 and 2018--19, the owner share in this population falls from
+60.5270\% to 48.5783\%, a change of $-11.9487$ percentage points. The private-
+renter share rises from 22.1325\% to 34.4594\%, or $+12.3269$ points; the social-
+renter residual changes by $-0.3783$ points. These arithmetic movements are close
+to mirror images, but they do not reveal the gross transactions, purchaser types,
+or resource origins that produced them.
+
+\begin{figure}[t]
+  \centering
+  \begin{subfigure}{0.49\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figure_2_price_stock_rent.pdf}
+    \caption{House prices and the separate stock-rent segment.}
+  \end{subfigure}\hfill
+  \begin{subfigure}{0.49\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figure_3_supply_and_rates.pdf}
+    \caption{Net additions and quoted mortgage rates.}
+  \end{subfigure}
+  \caption{Registered public accounting paths. The price-to-stock-rent series
+  is normalized in January 2015 and is not a gross or net yield. Mortgage rates
+  are quoted UK products; BTL support begins in January 2012.}
+  \label{fig:publicpaths}
+\end{figure}
+
+The England HPI rises 29.5419\% arithmetically between January 2008 and December
+2019. Over their separate registered windows, IPHRP rises 12.6554\% and PIPR
+rises 11.9390\%; their levels are not spliced. On matched January 2015--December
+2019 support, the normalized HPI-to-PIPR index rises 9.3346\%. Net additions rise
+from 0.8119\% to 1.0233\% of the beginning-of-year dwelling stock between the
+first and last core years. On January 2012--December 2019 common support, the
+mean quoted BTL-minus-owner mortgage spread is 1.2573 percentage points. Each
+fact constrains a model, but none is a direct observation of $z_T$.
+
+The Bank's quoted-rate collection changed during 2019 from sampled end-month
+observations to whole-market monthly averages. We retain the published series as
+a descriptive credit-cost diagnostic and do not interpret the within-series break
+as an economic shock.
+
+\section{A fail-fast identification design}
+\label{sec:design}
+
+\subsection{Local response map}
+
+Let $g(\theta)\in\R^{57}$ map seven maintained mechanism amplitudes into the
+registered target vector, after an explicit public-unit observation adapter. At
+a design point $\theta_0$, the local response matrix is
+\begin{equation}
+  J(\theta_0)=\left[
+  \frac{\partial g}{\partial z_T},
+  \frac{\partial g}{\partial z_M},
+  \frac{\partial g}{\partial c},
+  \frac{\partial g}{\partial s},
+  \frac{\partial g}{\partial \tau_L},
+  \frac{\partial g}{\partial r},
+  \frac{\partial g}{\partial d}
+  \right],
+  \label{eq:jacobian}
+\end{equation}
+where the remaining columns denote credit, planning or supply, landlord tax,
+interest-rate, and demographic blocks. The coefficients are synthetic design
+inputs, not empirical elasticities. Percentage-level tenure and pounds-per-week
+rent units are preserved before a separately frozen diagonal scaling is applied.
+
+Full column rank of $J$ is necessary for local separation inside the maintained
+model but is not sufficient for mechanism specificity. An omitted response can
+project onto the focal column even when the maintained columns are linearly
+independent. We therefore require known-negative rank controls, deterministic
+adversarial data-generating processes, profile diagnostics, and executable maps
+between model stocks and aggregate published outcomes before expensive recovery
+experiments may run.
+
+\subsection{Prospective decision rule}
+
+The gate was frozen to return either \decision{FAIL-IDENT-0} or
+\decision{CONTINUE-TO-FULL-GATE}; it has no path to declare final identification.
+A controlling failure stops the 6,573 planned fits and 210,336 optimizer starts.
+This is a scientific stop rule, not merely a computational shortcut: once a cheap
+test demonstrates that unique attribution is unsupported, running a large model
+cannot repair the missing information.
+
+Four deliberately adversarial rival responses represent social comparison,
+institutional entry, rental segmentation, and planning restriction. They are
+stress constructions, not a random sample of mechanisms. Accordingly, the share
+of those four cases producing a nonzero profile is never interpreted as a
+population false-positive rate.
+
+\section{Identification geometry and conditional sharp sets}
+\label{sec:geometry}
+
+Partition a local linear response as
+\begin{equation}
+  y=f\beta+N\gamma,
+  \label{eq:linearresponse}
+\end{equation}
+where $f\in\R^m$ is the focal top-resource response, $N\in\R^{m\times k}$ contains
+maintained nuisance and admitted rival responses, $\beta$ is the focal amplitude,
+and $\gamma$ collects nuisance amplitudes. The following elementary result is the
+paper's central diagnostic.
+
+\begin{proposition}[Linear discriminator]
+\label{prop:discriminator}
+There exists a vector $d\in\R^m$ satisfying $d^{\top}N=0$ and
+$d^{\top}f=1$ if and only if $f\notin\col(N)$. When $r=(I-P_N)f\neq0$, where
+$P_N$ is the orthogonal projector onto $\col(N)$, one such discriminator is
+$d=r/(r^{\top}r)$.
+\end{proposition}
+
+\begin{proof}
+If $f=Nc$ for some $c$, then every $d$ with $d^{\top}N=0$ also satisfies
+$d^{\top}f=d^{\top}Nc=0$, contradicting $d^{\top}f=1$. Conversely, $r$ is
+orthogonal to $\col(N)$ and $r^{\top}f=r^{\top}r>0$, so the stated normalization
+has both required properties.
+\end{proof}
+
+The numerical certificate normalizes each nonzero nuisance column, forms a
+truncated-SVD projector, and compares the residual of a unit-norm focal response
+with a prospectively fixed tolerance. This makes the span decision invariant to
+units without obscuring the original column norms. Repeated time ramps or rescaled
+copies of existing moments cannot create a discriminator because they do not add
+a new response direction.
+
+Point identification is not the only coherent target. Suppose nuisance
+amplitudes have externally justified bounds $\ell\leq\gamma\leq u$, with optional
+bounds on $\beta$. The sharp conditional focal set is
+\begin{equation}
+  \mathcal B(y)=\left\{\beta:\exists\gamma:\;
+  y=f\beta+N\gamma,\;\ell\leq\gamma\leq u\right\}.
+  \label{eq:identifiedset}
+\end{equation}
+Because the feasible set is convex, its projection onto $\beta$ is an interval.
+Its endpoints solve two linear programs. Infeasibility and unboundedness are
+substantive outcomes, not software errors. What gives such an interval empirical
+content is the provenance of $f$, $N$, $y$, and the boxes---not the optimizer. The
+current England application lacks independently source-backed response sets, so
+we do not calculate an empirical interval.
+
+\input{results_and_reproducibility}
+
+\section{Minimum-data and value-of-information result}
+\label{sec:min-data}
+
+The failed gate does more than request ``better data.'' It specifies the direction
+that a useful measurement must add. Let $C=\{c:Nc=f\}$ be the set of nuisance
+representations of the current focal response. Append one new measurement with
+focal response $a_f$ and nuisance row $a_N^{\top}$. The extended columns are
+\[
+  f^+=\begin{bmatrix}f\\a_f\end{bmatrix},\qquad
+  N^+=\begin{bmatrix}N\\a_N^{\top}\end{bmatrix}.
+\]
+
+\begin{proposition}[A measurement that breaks observational equivalence]
+\label{prop:newmeasurement}
+If $f\in\col(N)$ in the current observation map, then the appended measurement
+identifies a new focal direction if and only if
+\begin{equation}
+  a_f\notin\{a_N^{\top}c:c\in C\}.
+  \label{eq:newrow}
+\end{equation}
+Equivalently, $f^+\notin\col(N^+)$. Thus one well-oriented scalar measurement can
+be sufficient, while arbitrarily many measurements satisfying the same nuisance
+representation cannot help.
+\end{proposition}
+
+\begin{proof}
+$f^+\in\col(N^+)$ precisely when there exists $c$ such that both $Nc=f$ and
+$a_N^{\top}c=a_f$. This is equivalent to $a_f$ belonging to the set on the
+right-hand side of \cref{eq:newrow}. Negating the condition and applying
+\cref{prop:discriminator} gives the result.
+\end{proof}
+
+The synthetic augmented matrix has 11 columns and rank nine, but its two-
+dimensional algebraic rank deficit is not a claim that exactly two real-world
+variables are required. The orientation of a measurement matters more than its
+count. In housing terms:
+\begin{enumerate}
+  \item another tenure-stock year, or the same stock expressed in a different
+  denominator, is unlikely to break the equivalence;
+  \item a validated $O\rightarrow L$ transaction label reduces gross-flow
+  ambiguity but still does not reveal the purchaser's resource shock;
+  \item a top non-housing wealth measure without a property linkage remains
+  vulnerable to asset returns, transfers, debt changes, and aggregation; and
+  \item the most valuable design jointly links pre-determined non-housing
+  resources or a defensible resource shock to purchaser identity, property-use
+  transition, financing, and a comparison group, with supply and credit responses
+  measured on compatible support.
+\end{enumerate}
+
+This joint object could arise from securely linked tax, mortgage, ownership, and
+rental-listing records, or from a narrowly valid policy or windfall design. Access
+alone is not identification: linkage error, anticipation, legal-form switching,
+reclassification, and equilibrium spillovers must enter the response set. The
+criterion in \cref{eq:newrow} provides a pre-analysis value-of-information test for
+candidate acquisitions.
+
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{What the failure establishes}
+
+The results establish that the registered synthetic observation map does not
+support unique top-resource attribution. This conclusion is stronger than noting
+that a regression may be endogenous and weaker than proving that no conceivable
+England design can identify the mechanism. It is bound to the admitted response
+class. A new source or restriction can alter the column space; it must be justified
+without using the desired conclusion.
+
+Local full rank and low residual loss inside a maintained model should therefore
+not be reported as identification when omitted economically plausible mechanisms
+have aligned responses. The known-negative controls in this project illustrate
+the difference: the code correctly rejects exact and near collinearity, yet the
+apparently healthy seven-column design remains non-specific after rivals are
+admitted. The problem is semantic coverage, not numerical optimization.
+
+\subsection{What the public facts do and do not show}
+
+The open data show a large reallocation of broad tenure among households aged
+25--44, rising house prices, rising stock rents, changes in relative prices, a
+recovering net-supply rate, and a narrowing quoted BTL mortgage spread over the
+registered window. These are important constraints. They do not determine
+whether the tenure shift arose from rich household purchases, institutional entry,
+middle-resource loss, credit conditions, supply, demographics, or combinations.
+Nor can the near-offsetting owner and private-renter share changes be treated as
+gross owner-to-landlord transfers.
+
+The linked-listing literature is informative but does not close the mechanism.
+\citet{bracke2021} defines investor acquisition through a rental listing within six
+months of sale. The later Bank measure uses a four-year window and prior/subsequent
+listing histories to classify three property flows
+\citep{bankofengland2023flows}. These are different estimands; both are sensitive
+to coverage, timing, and classification; online-listing volume is itself sensitive
+to platform coverage \citep{livingston2021}. Neither directly identifies purchaser
+wealth rank or the origin of funds. A future paper should treat their definitions
+as measurement models, not ground-truth labels.
+
+\subsection{Relation to partial identification}
+
+Partial identification is not a rhetorical downgrade of point identification.
+It replaces a false singleton with a transparent set whose width reflects admitted
+uncertainty \citep{manski2003,tamer2010}. The sharp-set machinery in this paper is
+ready to accept source-backed mechanism response ranges. It deliberately refuses
+to transform the synthetic IDENT-0 loadings into an England interval. Informative
+bounds may eventually support a near-zero, signed, or sign-ambiguous conclusion;
+all are scientifically admissible.
+
+\subsection{Limitations}
+
+Four limitations define the paper's claim ceiling. First, the public tenure path
+contains point estimates without the design covariance needed for combined-age
+inference. Second, the design responses and adversarial rivals are synthetic.
+They test a planned model, not England. Third, the novelty search is bounded and
+cannot prove global priority. Fourth, the analysis does not estimate a causal or
+structural historical contribution. These limitations are not buried robustness
+notes: they determine the title, abstract, and decision code.
+
+\section{Conclusion}
+
+The project began with an intuitively attractive extension of Stevenson's thesis:
+wealth concentration raises fixed-asset demand, encourages middle-class dissaving,
+and reallocates owner-occupied homes to landlords. The novelty gate showed that
+the broad theoretical and empirical territory is already occupied. The
+identification gate then showed that the registered aggregate observation map
+cannot distinguish the focal top-resource response from admitted alternatives.
+The responsible outcome is not to force a structural estimate. It is to publish
+the boundary.
+
+Three results survive that boundary. Official public data reproducibly document
+the motivating accounting paths. A discriminator theorem and manifest-bound
+certificate state exactly why unique attribution fails in the planned design. A
+conditional sharp-set framework and new-measurement criterion turn the failure
+into a concrete data-acquisition agenda. In this setting, ``stocks are not flows''
+is not merely a warning about terminology. It is the identification result.
+
+\section*{Declarations}
+
+\paragraph{Data and code availability.}
+The replication package contains source identities and hashes, extraction and
+validation code, tests, machine-readable reports, deterministic figures, and a
+deterministic offline replay. Restricted, safeguarded, proprietary listing, and
+address-level data are not redistributed. Exact release identifiers are reported
+in the reproducibility appendix. The archival preprint and replication package
+are at \href{https://doi.org/10.5281/zenodo.21740339}{doi:10.5281/zenodo.21740339};
+the public source repository is
+\url{https://github.com/ipitchford/stocks-are-not-flows}.
+
+\paragraph{Internal protocol and outcome viewing.}
+The public pilot was governed by a prospectively frozen internal protocol and
+three amendments. The EHS
+endpoints and the 2015--2019 HPI/PIPR endpoint had been viewed during feasibility
+work. The net-supply component tolerance was fixed during pre-run schema
+inspection. These disclosures preclude an untouched confirmatory interpretation.
+
+\paragraph{Competing interests and funding.}
+No funding or competing-interest declarations were supplied for this anonymous
+public discussion preprint. These declarations, affiliations, and accountable
+human authorship must be completed before journal submission.
+
+\paragraph{Use of computational assistance.}
+Automated research and coding tools assisted source discovery, implementation,
+testing, and manuscript drafting. Human authors remain responsible for source
+verification, the scientific claims, and the submitted text. Automated tools are
+not authors.
+
+\appendix
+\input{appendix_theory}
+
+\bibliographystyle{apalike}
+\bibliography{references}
+
+\end{document}

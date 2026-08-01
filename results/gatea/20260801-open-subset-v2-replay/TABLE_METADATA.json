@@ -1,0 +1,190 @@
+{
+  "schema_version": "0.1",
+  "tables": [
+    {
+      "description": "Open-table broad-tenure point estimates; no public design covariance.",
+      "fields": [
+        "period",
+        "start_year",
+        "geography",
+        "population",
+        "denominator_households_thousands",
+        "unweighted_sample_size_25_44",
+        "unweighted_sample_status",
+        "owner_households_thousands",
+        "owner_share_pct",
+        "private_renter_households_thousands",
+        "private_renter_share_pct",
+        "social_renter_households_thousands",
+        "social_renter_share_pct",
+        "uncertainty_status",
+        "source_id"
+      ],
+      "filename": "ehs_tenure_25_44_england.csv",
+      "rows": 11,
+      "sha256": "8d6d119d4fe513707e517b149e71a33d586748559fa6357bbce990a4b55a7a85",
+      "source_ids": [
+        "EHS_FA1201_OPEN"
+      ]
+    },
+    {
+      "description": "Unadjusted all-property England HPI monthly path.",
+      "fields": [
+        "date",
+        "geography",
+        "area_code",
+        "index",
+        "source_id"
+      ],
+      "filename": "hpi_monthly_england.csv",
+      "rows": 144,
+      "sha256": "85af51b7bd335415793f04fb56840e837819b7ab4e5205b4581cf49f647d1307",
+      "source_ids": [
+        "HMLR_UKHPI_INDICES_2026_05"
+      ]
+    },
+    {
+      "description": "Annual mean, normalized log level, and December-to-December log growth.",
+      "fields": [
+        "year",
+        "geography",
+        "arithmetic_mean_index",
+        "january_index",
+        "december_index",
+        "december_to_december_100_log_change",
+        "growth_support_status",
+        "source_id",
+        "log_annual_mean_normalized_2008"
+      ],
+      "filename": "hpi_annual_england.csv",
+      "rows": 12,
+      "sha256": "cc4f12b87084381bb2922b8b3e4241b4f7cf277207c61d2ad89ed50563d3d698",
+      "source_ids": [
+        "HMLR_UKHPI_INDICES_2026_05"
+      ]
+    },
+    {
+      "description": "Historical stock-rent index segment; never level-spliced to PIPR.",
+      "fields": [
+        "date",
+        "geography",
+        "area_code",
+        "index",
+        "method_segment",
+        "source_id"
+      ],
+      "filename": "rent_iphrp_2008_2014_england.csv",
+      "rows": 84,
+      "sha256": "4d473d419cbcceddada645682e524a79532ea60e96b1bf934bc547721462afd9",
+      "source_ids": [
+        "ONS_IPHRP_HIST_V25"
+      ]
+    },
+    {
+      "description": "PIPR stock-rent index segment and published estimated monthly rent.",
+      "fields": [
+        "date",
+        "geography",
+        "area_code",
+        "index",
+        "estimated_monthly_rent_gbp",
+        "method_segment",
+        "source_id"
+      ],
+      "filename": "rent_pipr_2015_2019_england.csv",
+      "rows": 60,
+      "sha256": "b1c8841251151eabb8576b8d78d888247bfa8c1a4d6fb2909bbc5da0690b02d2",
+      "source_ids": [
+        "ONS_PIPR_2026_07_22"
+      ]
+    },
+    {
+      "description": "January-2015-normalized relative index; not a rental yield.",
+      "fields": [
+        "date",
+        "geography",
+        "hpi_normalized_jan2015",
+        "stock_rent_index_normalized_jan2015",
+        "price_to_stock_rent_index",
+        "stock_rent_to_price_index",
+        "interpretation",
+        "source_ids"
+      ],
+      "filename": "price_to_stock_rent_2015_2019_england.csv",
+      "rows": 60,
+      "sha256": "c1fe4f0fb499c4f3a086598b5736f4f6330b9a3ec700e40ebad57f45c172cd07",
+      "source_ids": [
+        "HMLR_UKHPI_INDICES_2026_05",
+        "ONS_PIPR_2026_07_22"
+      ]
+    },
+    {
+      "description": "Financial-year net additions divided by start-of-year all-dwelling stock.",
+      "fields": [
+        "financial_year",
+        "start_year",
+        "geography",
+        "new_build_completions",
+        "net_conversions",
+        "net_change_of_use",
+        "net_other_gains",
+        "demolitions",
+        "census_adjustments",
+        "net_additional_dwellings",
+        "published_component_residual",
+        "stock_reference_date",
+        "start_of_year_all_dwellings",
+        "net_additions_rate_pct",
+        "denominator_note",
+        "source_ids"
+      ],
+      "filename": "net_additions_2008_2018_england.csv",
+      "rows": 11,
+      "sha256": "e5f16fae1655657a5ddad6bc2937fd6ebb12e315749e9b47bfedf9e81c78913a",
+      "source_ids": [
+        "MHCLG_DWELLING_STOCK_LT104_2026_05",
+        "MHCLG_NET_SUPPLY_LT120_2025_11"
+      ]
+    },
+    {
+      "description": "Monthly quoted owner and BTL rates; missing BTL months remain blank.",
+      "fields": [
+        "date",
+        "publisher_date",
+        "geography",
+        "owner_2y_fixed_75ltv_pct",
+        "btl_2y_fixed_75ltv_pct",
+        "btl_minus_owner_spread_pp",
+        "interpretation",
+        "source_id"
+      ],
+      "filename": "quoted_mortgage_rates_2008_2019_uk.csv",
+      "rows": 144,
+      "sha256": "eed88671d3e9b681180bd7eb325ef1f6b354466d2f5c4c8aa83309b50e990965",
+      "source_ids": [
+        "BOE_QUOTED_RATES_2008_2019"
+      ]
+    },
+    {
+      "description": "Annual arithmetic means; BTL and spread require all 12 common-support months.",
+      "fields": [
+        "year",
+        "geography",
+        "owner_support_months",
+        "owner_2y_fixed_75ltv_annual_mean_pct",
+        "btl_common_support_months",
+        "btl_2y_fixed_75ltv_annual_mean_pct",
+        "btl_minus_owner_annual_mean_spread_pp",
+        "common_support_status",
+        "interpretation",
+        "source_id"
+      ],
+      "filename": "quoted_mortgage_rates_annual_2008_2019_uk.csv",
+      "rows": 12,
+      "sha256": "d39bd4390de84762014a5ce406d42ef4227cee787f08aef23b53ac4535c8606e",
+      "source_ids": [
+        "BOE_QUOTED_RATES_2008_2019"
+      ]
+    }
+  ]
+}

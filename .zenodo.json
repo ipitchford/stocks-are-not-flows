@@ -1,0 +1,25 @@
+{
+  "access_right": "open",
+  "creators": [
+    {
+      "name": "Anonymous"
+    }
+  ],
+  "description": "Anonymous, unrefereed public discussion preprint and replication package. England's public tenure, price, rent, mortgage-rate, and housing-supply series document a substantial tenure shift but do not uniquely identify how much, if any, was caused by rising resources at the top. The registered synthetic response design admits observationally equivalent rival mechanisms, so the planned structural fit was stopped. Deterministic self-replay is not independent replication. The work reports no causal coefficient, historical contribution share, or empirical England partial-identification interval.",
+  "keywords": [
+    "housing tenure",
+    "private renting",
+    "wealth inequality",
+    "structural identification",
+    "partial identification",
+    "reproducible research",
+    "unrefereed preprint"
+  ],
+  "language": "eng",
+  "license": "cc0-1.0",
+  "publication_date": "2026-08-01",
+  "publication_type": "preprint",
+  "title": "Stocks Are Not Flows: An Identification Audit of Investor Pressure and Tenure Change in England",
+  "upload_type": "publication",
+  "version": "1.0.0"
+}

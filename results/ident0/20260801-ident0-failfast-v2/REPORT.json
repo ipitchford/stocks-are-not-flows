@@ -1,0 +1,671 @@
+{
+  "assurance_boundary": [
+    "The local response coefficients and wealth terminal loadings are design inputs, not empirical elasticities.",
+    "The diagonal synthetic scales are a frozen recovery design, not administrative-data standard errors.",
+    "A fail authorizes scenarios, identified sets, or near-zero bounds; it prohibits unique historical attribution."
+  ],
+  "criteria": [
+    {
+      "detail": "T07 remains pounds/week and tenure targets remain percentage levels.",
+      "name": "public_unit_observation_schedule",
+      "status": "PASS",
+      "threshold": "57 frozen targets adapted; no pending target adapter; H05 explicit nonmodelled",
+      "value": {
+        "H05_status": "nonmodelled_holdout",
+        "pending_targets": [],
+        "target_count": 57
+      }
+    },
+    {
+      "detail": "Receipts use D1/D1R/D2/D2R, direct E0, C0 composition, or N0 no-change.",
+      "name": "signed_closure_coverage",
+      "status": "PASS",
+      "threshold": "all 313 cases have unique valid receipts and the Amendment-02 elementary/composite taxonomy",
+      "value": {
+        "C0_COMPOSITE_OPEN": 257,
+        "D1R_TOP_RESOURCE_WITHDRAWAL": 6,
+        "D1_RESOURCE_INJECTION": 6,
+        "D2R_MIDDLE_RESOURCE_INJECTION": 6,
+        "D2_RESOURCE_LOSS": 6,
+        "E0_REDISTRIBUTION": 1,
+        "N0_NO_CHANGE": 31
+      }
+    },
+    {
+      "detail": "Three scaled central-difference steps are used at every point.",
+      "name": "local_identification_64_point",
+      "status": "PASS",
+      "threshold": ">= 61/64; selected midpoint passes",
+      "value": {
+        "passing": 64,
+        "selected_passed": true,
+        "total": 64
+      }
+    },
+    {
+      "detail": "A silent pass is a code-review blocker.",
+      "name": "exact_collinearity_known_negative",
+      "status": "PASS",
+      "threshold": "mutated top/middle collinearity must fail the rank gate",
+      "value": [
+        6,
+        6,
+        6
+      ]
+    },
+    {
+      "detail": "Algebraic rank alone cannot rescue an ill-conditioned design.",
+      "name": "near_collinearity_known_negative",
+      "status": "PASS",
+      "threshold": "condition number must exceed 10000",
+      "value": [
+        341806771.45865947,
+        341807333.0272314,
+        341806239.5191405
+      ]
+    },
+    {
+      "detail": "3/4 profiles exclude zero",
+      "name": "deterministic_rival_null_false_positive",
+      "status": "FAIL",
+      "threshold": "<= 0.05",
+      "value": 0.75
+    },
+    {
+      "detail": "0/4 estimates make z_top co-largest",
+      "name": "deterministic_rival_top_largest",
+      "status": "PASS",
+      "threshold": "<= 0.1",
+      "value": 0.0
+    },
+    {
+      "detail": "The 95%-of-cases outer rule remains part of the unrun full gate.",
+      "name": "deterministic_rival_optimizer_stability",
+      "status": "PASS",
+      "threshold": ">= 30/32 starts for every deterministic rival case",
+      "value": [
+        32,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "detail": "This is a harness detection control, not a rival the design could overcome.",
+      "name": "exact_top_mimic_known_negative",
+      "status": "PASS",
+      "threshold": "harness must expose false unique top attribution when labels are identical",
+      "value": {
+        "estimated_z_top": 0.6499999999999999,
+        "profile": [
+          0.3750000000000001,
+          0.9250000000000002
+        ]
+      }
+    },
+    {
+      "detail": "The response matrix emits aggregate HPI directly.",
+      "name": "owner_landlord_prices_to_aggregate_hpi_map",
+      "status": "FAIL",
+      "threshold": "executable observation map",
+      "value": "NOT_IMPLEMENTED"
+    },
+    {
+      "detail": "The response matrix emits household tenure directly.",
+      "name": "dwelling_stocks_to_household_tenure_map",
+      "status": "FAIL",
+      "threshold": "executable observation map",
+      "value": "NOT_IMPLEMENTED"
+    },
+    {
+      "detail": "The response matrix has no lifecycle state distribution.",
+      "name": "age_25_44_lifecycle_aggregation_map",
+      "status": "FAIL",
+      "threshold": "executable observation map",
+      "value": "NOT_IMPLEMENTED"
+    }
+  ],
+  "decision": "FAIL-IDENT-0",
+  "diagnostic_observations": 30,
+  "executed_scope": "fail_fast_front_and_deterministic_adversarial_profiles",
+  "full_plan_fits": 6573,
+  "full_plan_optimizer_starts": 210336,
+  "full_plan_truth_cases": 313,
+  "local_condition_numbers": [
+    [
+      63.340458681023975,
+      63.34045860858237,
+      63.34045831881351
+    ],
+    [
+      63.44502368364632,
+      63.4450236095356,
+      63.445023313220645
+    ],
+    [
+      63.620977389178975,
+      63.62097731240813,
+      63.620977005142954
+    ],
+    [
+      63.16483570433602,
+      63.16483563466765,
+      63.16483535588979
+    ],
+    [
+      63.87148357461969,
+      63.871483493931656,
+      63.8714831711298
+    ],
+    [
+      62.647667822406795,
+      62.64766776083655,
+      62.6476675146765
+    ],
+    [
+      63.897330780418706,
+      63.89733069931685,
+      63.89733037497104
+    ],
+    [
+      62.6866458345018,
+      62.68664577238212,
+      62.686645523784165
+    ],
+    [
+      62.40833332674564,
+      62.40833326894793,
+      62.408333038075554
+    ],
+    [
+      62.71784006649247,
+      62.71784000381737,
+      62.71783975319137
+    ],
+    [
+      63.68813163475469,
+      63.688131556893616,
+      63.688131245458564
+    ],
+    [
+      63.77340457839655,
+      63.7734044992844,
+      63.77340418254665
+    ],
+    [
+      63.83448625629611,
+      63.8344861762369,
+      63.83448585575711
+    ],
+    [
+      63.25462189539905,
+      63.25462182426739,
+      63.25462153986093
+    ],
+    [
+      63.7790469462809,
+      63.7790468670131,
+      63.779046549959666
+    ],
+    [
+      62.77703053209333,
+      62.777030468509395,
+      62.77703021414088
+    ],
+    [
+      63.610005008378394,
+      63.61000493171475,
+      63.61000462513708
+    ],
+    [
+      62.701320199078296,
+      62.701320136714514,
+      62.70131988711384
+    ],
+    [
+      63.560591609534484,
+      63.560591533650346,
+      63.56059123012324
+    ],
+    [
+      62.35561943184141,
+      62.355619374900854,
+      62.35561914737367
+    ],
+    [
+      63.376504619351074,
+      63.37650454634005,
+      63.376504254276554
+    ],
+    [
+      63.68850316834331,
+      63.68850309042823,
+      63.68850277897563
+    ],
+    [
+      63.95356689432647,
+      63.95356681236389,
+      63.9535664845357
+    ],
+    [
+      63.85417822641285,
+      63.85417814598471,
+      63.85417782426714
+    ],
+    [
+      62.783999264787376,
+      62.78399920112982,
+      62.7839989462974
+    ],
+    [
+      63.44405461080688,
+      63.444054536739166,
+      63.44405424046321
+    ],
+    [
+      63.676986509561694,
+      63.6769864319049,
+      63.67698612116329
+    ],
+    [
+      63.79193317865308,
+      63.791933099194104,
+      63.791932781331575
+    ],
+    [
+      62.475374643989504,
+      62.47537458525287,
+      62.47537435005058
+    ],
+    [
+      63.18544650785989,
+      63.185446437901895,
+      63.18544615783626
+    ],
+    [
+      63.190053892651996,
+      63.190053822624506,
+      63.19005354221066
+    ],
+    [
+      63.344747159911435,
+      63.34474708740625,
+      63.344746797355945
+    ],
+    [
+      63.23165281333947,
+      63.231652742503904,
+      63.23165245951901
+    ],
+    [
+      63.517350442281725,
+      63.51735036704829,
+      63.517350066226825
+    ],
+    [
+      63.53118411286208,
+      63.531184037437924,
+      63.53118373576493
+    ],
+    [
+      63.45111321528164,
+      63.4511131410931,
+      63.451112844393826
+    ],
+    [
+      63.45876469326896,
+      63.45876461896191,
+      63.45876432179881
+    ],
+    [
+      63.77961998888471,
+      63.77961990961763,
+      63.77961959253308
+    ],
+    [
+      63.23341431035085,
+      63.23341423954635,
+      63.23341395645515
+    ],
+    [
+      63.19782236506832,
+      63.19782229485692,
+      63.197822013991775
+    ],
+    [
+      63.87465467565834,
+      63.87465459492453,
+      63.8746542719608
+    ],
+    [
+      62.920529658247936,
+      62.920529592378415,
+      62.920529328961926
+    ],
+    [
+      63.20965015192273,
+      63.209650081571645,
+      63.209649799944934
+    ],
+    [
+      63.57137765416852,
+      63.57137757815567,
+      63.57137727396219
+    ],
+    [
+      62.99094309049767,
+      62.990943023435776,
+      62.990942755581095
+    ],
+    [
+      63.59133559027429,
+      63.59133551389398,
+      63.59133520848158
+    ],
+    [
+      63.58432572881917,
+      63.584325652636466,
+      63.584325347677016
+    ],
+    [
+      64.08297456202952,
+      64.082974478049,
+      64.08297414227779
+    ],
+    [
+      62.799091286746794,
+      62.7990912227285,
+      62.799090966972706
+    ],
+    [
+      63.68718123610227,
+      63.68718115823721,
+      63.68718084688677
+    ],
+    [
+      63.281586047596264,
+      63.28158597609738,
+      63.28158568995074
+    ],
+    [
+      63.52379688499519,
+      63.523796809637595,
+      63.52379650843089
+    ],
+    [
+      63.481396236484244,
+      63.48139616184791,
+      63.48139586326437
+    ],
+    [
+      63.34536974009388,
+      63.345369667559666,
+      63.345369377478846
+    ],
+    [
+      63.725280203206175,
+      63.72528012475006,
+      63.7252798110285
+    ],
+    [
+      64.01036655509289,
+      64.01036647225791,
+      64.01036614095581
+    ],
+    [
+      63.749242193898056,
+      63.74924211508756,
+      63.74924179987126
+    ],
+    [
+      63.479119932867015,
+      63.47911985823343,
+      63.47911955980019
+    ],
+    [
+      63.11375349332729,
+      63.113753424402084,
+      63.1137531488179
+    ],
+    [
+      62.485034576665335,
+      62.48503451778457,
+      62.485034281966755
+    ],
+    [
+      62.643502619230134,
+      62.64350255776809,
+      62.64350231190625
+    ],
+    [
+      63.56636374227343,
+      63.56636366633361,
+      63.56636336247149
+    ],
+    [
+      63.07975647756315,
+      63.07975640921343,
+      63.07975613570492
+    ],
+    [
+      62.90621768011164,
+      62.90621761453916,
+      62.90621735200129
+    ]
+  ],
+  "local_rank_points_passing": 64,
+  "local_rank_points_total": 64,
+  "model_variant": "baseline",
+  "nonmodelled_holdouts": [
+    "H02_TENURE_ALLAGE",
+    "H03_RENT_BURDEN",
+    "H04_PROPERTY_WEALTH",
+    "H05_PRICE_RENT_INDEX",
+    "H07_MLAR_BTL",
+    "H08_FTB_PROFILE",
+    "H09_EPLS_2018",
+    "H10_HMRC_TX",
+    "H11_HPI_BUYER_CUTS",
+    "H12_POST2019"
+  ],
+  "pass_ident0_authorized": false,
+  "public_core_absences": [],
+  "rival_cases": [
+    {
+      "dgp": "social_comparison",
+      "estimate": [
+        [
+          "z_top",
+          0.34353351792289766
+        ],
+        [
+          "z_middle",
+          0.421482920888973
+        ],
+        [
+          "credit",
+          -0.9999999999999999
+        ],
+        [
+          "planning_supply",
+          -0.2249193213802494
+        ],
+        [
+          "landlord_tax",
+          -0.41040279774506294
+        ],
+        [
+          "rate",
+          -0.9320315284925913
+        ],
+        [
+          "demographics",
+          0.7229732121305998
+        ]
+      ],
+      "largest_estimated_blocks": [
+        "credit"
+      ],
+      "objective": 1.8083770921503586,
+      "profile_connected_components": 1,
+      "profile_excludes_zero": true,
+      "profile_lower": 0.1250000000000001,
+      "profile_upper": 0.5750000000000001,
+      "profile_width_fraction": 0.22499999999999998,
+      "same_basin_starts": 32,
+      "successful_starts": 32
+    },
+    {
+      "dgp": "institutional_entry",
+      "estimate": [
+        [
+          "z_top",
+          0.5195663886254122
+        ],
+        [
+          "z_middle",
+          0.4172806729334357
+        ],
+        [
+          "credit",
+          -0.9999999999999999
+        ],
+        [
+          "planning_supply",
+          0.09828418022684483
+        ],
+        [
+          "landlord_tax",
+          -0.6725767853712963
+        ],
+        [
+          "rate",
+          -0.7573955773889836
+        ],
+        [
+          "demographics",
+          0.9999999999999999
+        ]
+      ],
+      "largest_estimated_blocks": [
+        "credit",
+        "demographics"
+      ],
+      "objective": 10.867584848294628,
+      "profile_connected_components": 1,
+      "profile_excludes_zero": true,
+      "profile_lower": 0.3750000000000001,
+      "profile_upper": 0.7250000000000001,
+      "profile_width_fraction": 0.175,
+      "same_basin_starts": 32,
+      "successful_starts": 32
+    },
+    {
+      "dgp": "rental_segmentation",
+      "estimate": [
+        [
+          "z_top",
+          0.4442066111023823
+        ],
+        [
+          "z_middle",
+          0.4691665001570384
+        ],
+        [
+          "credit",
+          -0.9999999999999999
+        ],
+        [
+          "planning_supply",
+          -0.38566832749718527
+        ],
+        [
+          "landlord_tax",
+          0.011879504285130738
+        ],
+        [
+          "rate",
+          -0.5372251351358405
+        ],
+        [
+          "demographics",
+          0.9999999999999796
+        ]
+      ],
+      "largest_estimated_blocks": [
+        "credit",
+        "demographics"
+      ],
+      "objective": 8.874250189287974,
+      "profile_connected_components": 1,
+      "profile_excludes_zero": true,
+      "profile_lower": 0.32500000000000007,
+      "profile_upper": 0.6750000000000002,
+      "profile_width_fraction": 0.17500000000000004,
+      "same_basin_starts": 32,
+      "successful_starts": 32
+    },
+    {
+      "dgp": "planning_restriction",
+      "estimate": [
+        [
+          "z_top",
+          0.0733196443533094
+        ],
+        [
+          "z_middle",
+          0.03571681958964233
+        ],
+        [
+          "credit",
+          -0.07359549731745886
+        ],
+        [
+          "planning_supply",
+          -0.9999999999999999
+        ],
+        [
+          "landlord_tax",
+          -0.02648839137634309
+        ],
+        [
+          "rate",
+          -0.05690020205506934
+        ],
+        [
+          "demographics",
+          -0.06276962767868308
+        ]
+      ],
+      "largest_estimated_blocks": [
+        "planning_supply"
+      ],
+      "objective": 0.3147460546313273,
+      "profile_connected_components": 1,
+      "profile_excludes_zero": false,
+      "profile_lower": -0.17499999999999993,
+      "profile_upper": 0.32500000000000007,
+      "profile_width_fraction": 0.25,
+      "same_basin_starts": 32,
+      "successful_starts": 32
+    }
+  ],
+  "schema_version": "0.2",
+  "seed": 20260801,
+  "target_observations": 57,
+  "unrun_controlling_criteria": [
+    "313-case noiseless recovery aggregation",
+    "6,260 noisy-fit focal error aggregation",
+    "z_top and z_middle 95% sign recovery",
+    "synthetic Gaussian nominal-95% interval coverage in [0.90, 0.98]",
+    "90% overall and separate top/middle shock classification",
+    "64-case profile connectivity and width aggregation",
+    "0.25-range rival-compensation tests",
+    "95%-of-cases outer optimiser-stability aggregation",
+    "wealth-channel-off structural mutation",
+    "fixed-stock supply structural mutation",
+    "landlord-tax-zero structural mutation",
+    "owner/landlord output-label swap mutation",
+    "P5 landlord-held-housing and net-yield signature"
+  ]
+}

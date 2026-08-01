@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1",
+  "years": [2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019],
+  "seed": 20260801,
+  "finite_difference_steps": [0.005, 0.01, 0.02],
+  "rank_ratio_min": 0.0001,
+  "condition_number_max": 10000.0,
+  "local_rank_required_points": 61,
+  "local_rank_total_points": 64,
+  "sign_recovery_min": 0.95,
+  "coverage_min": 0.90,
+  "coverage_max": 0.98,
+  "null_false_positive_max": 0.05,
+  "rival_largest_block_max": 0.10,
+  "classification_min": 0.90,
+  "noiseless_case_pass_min": 0.95,
+  "optimiser_stability_min": 0.95,
+  "starts_per_fit": 32,
+  "same_basin_starts_min": 30,
+  "profile_grid_points": 41,
+  "profile_objective_difference_cutoff": 3.841,
+  "profile_max_width_fraction": 0.50,
+  "parameter_bounds": {
+    "z_top": [-1.0, 1.0],
+    "z_middle": [-1.0, 1.0],
+    "credit": [-1.0, 1.0],
+    "planning_supply": [-1.0, 1.0],
+    "landlord_tax": [-1.0, 1.0],
+    "rate": [-1.0, 1.0],
+    "demographics": [-1.0, 1.0]
+  },
+  "synthetic_moment_scales": {
+    "owner_share_25_44_pp": 0.25,
+    "private_renter_share_25_44_pp": 0.25,
+    "nhw_top10_share_pp": 0.20,
+    "log_hpi_pct": 1.0,
+    "median_nominal_weekly_rent_gbp": 1.0,
+    "net_additions_rate_pp": 0.05,
+    "owner_mortgage_rate_pp": 0.10,
+    "btl_owner_spread_pp": 0.10
+  },
+  "synthetic_baseline_levels": {
+    "owner_share_25_44_pct": 65.0,
+    "private_renter_share_25_44_pct": 15.0,
+    "median_nominal_weekly_rent_gbp": 200.0
+  },
+  "economic_materiality": {
+    "owner_share_pp": 1.0,
+    "private_renter_share_pp": 1.0,
+    "house_price_pct": 5.0,
+    "price_stock_rent_ratio_pct": 3.0
+  }
+}

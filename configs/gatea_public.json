@@ -1,0 +1,110 @@
+{
+  "schema_version": "0.1",
+  "protocol_version": "public-pilot-0.1+amendments-01-03",
+  "seed": 20260801,
+  "core_start_year": 2008,
+  "core_end_year": 2019,
+  "user_agent": "housing-tenure-pressure/0.1 public-replication (non-commercial research)",
+  "sources": [
+    {
+      "source_id": "EHS_FA1201_OPEN",
+      "publisher": "Ministry of Housing, Communities and Local Government",
+      "landing_url": "https://www.gov.uk/government/statistical-data-sets/tenure-trends-and-cross-tenure-analysis",
+      "download_url": "https://assets.publishing.service.gov.uk/media/6a4d986009605a87f4354514/FA1201_age_of_household_reference_person_by_tenure.ods",
+      "filename": "EHS_FA1201_2024-25.ods",
+      "sha256": "f095268b6330ec5e4733b0474f53d8b79d7a6932dc939e0b65196799d54252ac",
+      "allowed_hosts": ["assets.publishing.service.gov.uk"],
+      "media_kind": "ods",
+      "max_bytes": 1000000,
+      "access_tier": "open_publication",
+      "licence": "Open Government Licence v3.0"
+    },
+    {
+      "source_id": "HMLR_UKHPI_INDICES_2026_05",
+      "publisher": "HM Land Registry",
+      "landing_url": "https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-may-2026",
+      "download_url": "https://publicdata.landregistry.gov.uk/market-trend-data/house-price-index-data/Indices-2026-05.csv",
+      "filename": "HMLR_Indices_2026-05.csv",
+      "sha256": "cacaef81b8f09c0b1c67c9a8a7c077134384a1be4dd1b1ddf26a9c52656620a5",
+      "allowed_hosts": ["publicdata.landregistry.gov.uk"],
+      "media_kind": "csv",
+      "max_bytes": 10000000,
+      "access_tier": "open_download",
+      "licence": "Open Government Licence v3.0"
+    },
+    {
+      "source_id": "ONS_IPHRP_HIST_V25",
+      "publisher": "Office for National Statistics",
+      "landing_url": "https://www.ons.gov.uk/datasets/index-private-housing-rental-prices/editions/time-series/versions/25",
+      "download_url": "https://download.ons.gov.uk/downloads/datasets/index-private-housing-rental-prices/editions/time-series/versions/25.csv",
+      "filename": "ONS_IPHRP_time-series_v25.csv",
+      "sha256": "bf87cfd293323df5c558a203635d69c16b9b1c48485d410afc19563c016228f1",
+      "allowed_hosts": ["download.ons.gov.uk", "static.ons.gov.uk"],
+      "media_kind": "csv",
+      "max_bytes": 5000000,
+      "access_tier": "open_download",
+      "licence": "Open Government Licence v3.0"
+    },
+    {
+      "source_id": "ONS_PIPR_2026_07_22",
+      "publisher": "Office for National Statistics",
+      "landing_url": "https://www.ons.gov.uk/economy/inflationandpriceindices/datasets/priceindexofprivaterentsukmonthlypricestatistics",
+      "download_url": "https://www.ons.gov.uk/file?uri=%2Feconomy%2Finflationandpriceindices%2Fdatasets%2Fpriceindexofprivaterentsukmonthlypricestatistics%2F22july2026%2Fpriceindexofprivaterentsukmonthlypricestatistics14.xlsx",
+      "filename": "ONS_PIPR_2026-07-22.xlsx",
+      "sha256": "d429e553ade454903b731f6c257609f14d0c2171822791e09c21a9d53d5e24a9",
+      "allowed_hosts": ["www.ons.gov.uk", "static.ons.gov.uk"],
+      "media_kind": "xlsx",
+      "max_bytes": 25000000,
+      "access_tier": "open_download",
+      "licence": "Open Government Licence v3.0"
+    },
+    {
+      "source_id": "MHCLG_DWELLING_STOCK_LT104_2026_05",
+      "publisher": "Ministry of Housing, Communities and Local Government",
+      "landing_url": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-dwelling-stock-including-vacants",
+      "download_url": "https://assets.publishing.service.gov.uk/media/6a0dcbcc40a9c699fd826eec/LiveTable104.ods",
+      "filename": "MHCLG_LiveTable104_2026-05.ods",
+      "sha256": "ecd02eb8e520e4fef7878bda35db002ca2360cb45112416db6619863b211a1fa",
+      "allowed_hosts": ["assets.publishing.service.gov.uk"],
+      "media_kind": "ods",
+      "max_bytes": 1000000,
+      "access_tier": "open_download",
+      "licence": "Open Government Licence v3.0"
+    },
+    {
+      "source_id": "MHCLG_NET_SUPPLY_LT120_2025_11",
+      "publisher": "Ministry of Housing, Communities and Local Government",
+      "landing_url": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-net-supply-of-housing",
+      "download_url": "https://assets.publishing.service.gov.uk/media/691de508e39a085bda43efc9/Live_Table_120.ods",
+      "filename": "MHCLG_LiveTable120_2025-11.ods",
+      "sha256": "548101e535b7db4e0718a1ef3129e343169cb3982f1cd8e03c0f247e93c5d219",
+      "allowed_hosts": ["assets.publishing.service.gov.uk"],
+      "media_kind": "ods",
+      "max_bytes": 1000000,
+      "access_tier": "open_download",
+      "licence": "Open Government Licence v3.0"
+    },
+    {
+      "source_id": "BOE_QUOTED_RATES_2008_2019",
+      "publisher": "Bank of England",
+      "landing_url": "https://www.bankofengland.co.uk/boeapps/database/",
+      "download_url": "https://www.bankofengland.co.uk/boeapps/database/_iadb-fromshowcolumns.asp?csv.x=yes&Datefrom=01/Jan/2008&Dateto=31/Dec/2019&SeriesCodes=IUMBV34,IUMZID4&CSVF=TN&UsingCodes=Y&VPD=Y&VFD=N",
+      "filename": "BOE_IUMBV34_IUMZID4_2008-2019.csv",
+      "sha256": "d5c17cabc1103c3396695f389c6384b745ce58e8f4f07787f83d82a62127f009",
+      "allowed_hosts": ["www.bankofengland.co.uk"],
+      "media_kind": "csv",
+      "max_bytes": 1000000,
+      "access_tier": "open_statistical_series",
+      "licence": "Bank of England database data are available under the UK Open Government Licence"
+    }
+  ],
+  "blocked_outputs": {
+    "AF01_AF02_DESIGN_COVARIANCE": "EHS public tables do not expose survey-design covariance; UKDS EUL microdata remain required",
+    "AF03_FINE_TENURE": "the open table contains three broad tenures rather than the registered fine categories",
+    "AF04_AF06_NHW": "net financial plus net business wealth and tenure-by-rank require WAS EUL microdata",
+    "AF10_PPD_TURNOVER": "an audited England/Wales geography concordance is required before streaming PPD",
+    "AF13_FCA_MLAR": "the long-run FCA table is prepared as a separate schema-pinning extension",
+    "AF14_EPLS": "only explicitly published 2018 report moments may enter a later bounded holdout module",
+    "GROSS_TENURE_FLOWS": "not labelled in the unrestricted open core; prior proprietary linked-listing estimates are context, not open inputs"
+  }
+}

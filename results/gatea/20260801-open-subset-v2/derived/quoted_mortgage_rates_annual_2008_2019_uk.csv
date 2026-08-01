@@ -1,0 +1,13 @@
+year,geography,owner_support_months,owner_2y_fixed_75ltv_annual_mean_pct,btl_common_support_months,btl_2y_fixed_75ltv_annual_mean_pct,btl_minus_owner_annual_mean_spread_pp,common_support_status,interpretation,source_id
+2008,United Kingdom,12,5.876666666666666,0,,,no published BTL observations,arithmetic means of quoted product rates; not realized costs,BOE_QUOTED_RATES_2008_2019
+2009,United Kingdom,12,4.2433333333333332,0,,,no published BTL observations,arithmetic means of quoted product rates; not realized costs,BOE_QUOTED_RATES_2008_2019
+2010,United Kingdom,12,3.7549999999999994,0,,,no published BTL observations,arithmetic means of quoted product rates; not realized costs,BOE_QUOTED_RATES_2008_2019
+2011,United Kingdom,12,3.3391666666666668,0,,,no published BTL observations,arithmetic means of quoted product rates; not realized costs,BOE_QUOTED_RATES_2008_2019
+2012,United Kingdom,12,3.538333333333334,12,5.1933333333333334,1.6550000000000002,complete 12-month common support,arithmetic means of quoted product rates; not realized costs,BOE_QUOTED_RATES_2008_2019
+2013,United Kingdom,12,2.6816666666666666,12,4.29,1.6083333333333334,complete 12-month common support,arithmetic means of quoted product rates; not realized costs,BOE_QUOTED_RATES_2008_2019
+2014,United Kingdom,12,2.4016666666666668,12,3.8583333333333338,1.4566666666666668,complete 12-month common support,arithmetic means of quoted product rates; not realized costs,BOE_QUOTED_RATES_2008_2019
+2015,United Kingdom,12,1.9216666666666669,12,3.5600000000000001,1.6383333333333336,complete 12-month common support,arithmetic means of quoted product rates; not realized costs,BOE_QUOTED_RATES_2008_2019
+2016,United Kingdom,12,1.7233333333333334,12,3.1008333333333327,1.3775000000000002,complete 12-month common support,arithmetic means of quoted product rates; not realized costs,BOE_QUOTED_RATES_2008_2019
+2017,United Kingdom,12,1.4608333333333334,12,2.5983333333333332,1.1375000000000002,complete 12-month common support,arithmetic means of quoted product rates; not realized costs,BOE_QUOTED_RATES_2008_2019
+2018,United Kingdom,12,1.6875,12,2.3083333333333331,0.62083333333333324,complete 12-month common support,arithmetic means of quoted product rates; not realized costs,BOE_QUOTED_RATES_2008_2019
+2019,United Kingdom,12,1.593333333333333,12,2.1575000000000002,0.56416666666666682,complete 12-month common support,arithmetic means of quoted product rates; not realized costs,BOE_QUOTED_RATES_2008_2019

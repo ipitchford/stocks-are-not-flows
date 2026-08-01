@@ -1,0 +1,711 @@
+{
+  "assurance_boundary": [
+    "The open EHS results are point estimates without public design covariance.",
+    "IPHRP and PIPR are separate method segments and are never level-spliced.",
+    "The price-to-stock-rent index is not a gross or net rental yield.",
+    "Dwelling-stock and household-tenure denominators are not interchangeable.",
+    "Quoted mortgage rates are United Kingdom offers, not realized England borrower costs.",
+    "No public series identifies the latent top non-housing resource flow.",
+    "WAS net non-housing wealth outputs and full EHS inference remain EUL-blocked.",
+    "This run cannot authorize structural estimation, unique attribution, or causal language."
+  ],
+  "blocked_outputs": {
+    "AF01_AF02_DESIGN_COVARIANCE": "EHS public tables do not expose survey-design covariance; UKDS EUL microdata remain required",
+    "AF03_FINE_TENURE": "the open table contains three broad tenures rather than the registered fine categories",
+    "AF04_AF06_NHW": "net financial plus net business wealth and tenure-by-rank require WAS EUL microdata",
+    "AF10_PPD_TURNOVER": "an audited England/Wales geography concordance is required before streaming PPD",
+    "AF13_FCA_MLAR": "the long-run FCA table is prepared as a separate schema-pinning extension",
+    "AF14_EPLS": "only explicitly published 2018 report moments may enter a later bounded holdout module",
+    "GROSS_TENURE_FLOWS": "not labelled in the unrestricted open core; prior proprietary linked-listing estimates are context, not open inputs"
+  },
+  "checks": [
+    {
+      "detail": "The shares are recomputed from unrounded weighted counts, never summed percentages.",
+      "expected": "three broad tenures close to the common 25-44 denominator",
+      "name": "ehs_2008-09_tenure_closure",
+      "status": "PASS",
+      "value": {
+        "count_residual_thousands": 0.0,
+        "share_residual_pp": 0.0
+      }
+    },
+    {
+      "detail": "The count-based calculation reproduces the publisher's within-age table.",
+      "expected": "maximum age-specific difference no greater than 1e-10 percentage points",
+      "name": "ehs_2008-09_published_percentage_reproduction",
+      "status": "PASS",
+      "value": 1.9895196601282805e-13
+    },
+    {
+      "detail": "The shares are recomputed from unrounded weighted counts, never summed percentages.",
+      "expected": "three broad tenures close to the common 25-44 denominator",
+      "name": "ehs_2009-10_tenure_closure",
+      "status": "PASS",
+      "value": {
+        "count_residual_thousands": -7.275957614183426e-12,
+        "share_residual_pp": -9.947598300641403e-14
+      }
+    },
+    {
+      "detail": "The count-based calculation reproduces the publisher's within-age table.",
+      "expected": "maximum age-specific difference no greater than 1e-10 percentage points",
+      "name": "ehs_2009-10_published_percentage_reproduction",
+      "status": "PASS",
+      "value": 1.4210854715202004e-14
+    },
+    {
+      "detail": "The shares are recomputed from unrounded weighted counts, never summed percentages.",
+      "expected": "three broad tenures close to the common 25-44 denominator",
+      "name": "ehs_2010-11_tenure_closure",
+      "status": "PASS",
+      "value": {
+        "count_residual_thousands": -9.094947017729282e-13,
+        "share_residual_pp": -2.842170943040401e-14
+      }
+    },
+    {
+      "detail": "The count-based calculation reproduces the publisher's within-age table.",
+      "expected": "maximum age-specific difference no greater than 1e-10 percentage points",
+      "name": "ehs_2010-11_published_percentage_reproduction",
+      "status": "PASS",
+      "value": 7.105427357601002e-15
+    },
+    {
+      "detail": "The shares are recomputed from unrounded weighted counts, never summed percentages.",
+      "expected": "three broad tenures close to the common 25-44 denominator",
+      "name": "ehs_2011-12_tenure_closure",
+      "status": "PASS",
+      "value": {
+        "count_residual_thousands": -2.000888343900442e-11,
+        "share_residual_pp": -2.8421709430404007e-13
+      }
+    },
+    {
+      "detail": "The count-based calculation reproduces the publisher's within-age table.",
+      "expected": "maximum age-specific difference no greater than 1e-10 percentage points",
+      "name": "ehs_2011-12_published_percentage_reproduction",
+      "status": "PASS",
+      "value": 3.552713678800501e-15
+    },
+    {
+      "detail": "The shares are recomputed from unrounded weighted counts, never summed percentages.",
+      "expected": "three broad tenures close to the common 25-44 denominator",
+      "name": "ehs_2012-13_tenure_closure",
+      "status": "PASS",
+      "value": {
+        "count_residual_thousands": -7.275957614183426e-12,
+        "share_residual_pp": -1.1368683772161603e-13
+      }
+    },
+    {
+      "detail": "The count-based calculation reproduces the publisher's within-age table.",
+      "expected": "maximum age-specific difference no greater than 1e-10 percentage points",
+      "name": "ehs_2012-13_published_percentage_reproduction",
+      "status": "PASS",
+      "value": 1.7053025658242404e-13
+    },
+    {
+      "detail": "The shares are recomputed from unrounded weighted counts, never summed percentages.",
+      "expected": "three broad tenures close to the common 25-44 denominator",
+      "name": "ehs_2013-14_tenure_closure",
+      "status": "PASS",
+      "value": {
+        "count_residual_thousands": 9.094947017729282e-12,
+        "share_residual_pp": 1.1368683772161603e-13
+      }
+    },
+    {
+      "detail": "The count-based calculation reproduces the publisher's within-age table.",
+      "expected": "maximum age-specific difference no greater than 1e-10 percentage points",
+      "name": "ehs_2013-14_published_percentage_reproduction",
+      "status": "PASS",
+      "value": 3.552713678800501e-15
+    },
+    {
+      "detail": "The shares are recomputed from unrounded weighted counts, never summed percentages.",
+      "expected": "three broad tenures close to the common 25-44 denominator",
+      "name": "ehs_2014-15_tenure_closure",
+      "status": "PASS",
+      "value": {
+        "count_residual_thousands": 2.7284841053187847e-12,
+        "share_residual_pp": 4.263256414560601e-14
+      }
+    },
+    {
+      "detail": "The count-based calculation reproduces the publisher's within-age table.",
+      "expected": "maximum age-specific difference no greater than 1e-10 percentage points",
+      "name": "ehs_2014-15_published_percentage_reproduction",
+      "status": "PASS",
+      "value": 7.105427357601002e-15
+    },
+    {
+      "detail": "The shares are recomputed from unrounded weighted counts, never summed percentages.",
+      "expected": "three broad tenures close to the common 25-44 denominator",
+      "name": "ehs_2015-16_tenure_closure",
+      "status": "PASS",
+      "value": {
+        "count_residual_thousands": -4.547473508864641e-12,
+        "share_residual_pp": -5.684341886080802e-14
+      }
+    },
+    {
+      "detail": "The count-based calculation reproduces the publisher's within-age table.",
+      "expected": "maximum age-specific difference no greater than 1e-10 percentage points",
+      "name": "ehs_2015-16_published_percentage_reproduction",
+      "status": "PASS",
+      "value": 7.105427357601002e-15
+    },
+    {
+      "detail": "The shares are recomputed from unrounded weighted counts, never summed percentages.",
+      "expected": "three broad tenures close to the common 25-44 denominator",
+      "name": "ehs_2016-17_tenure_closure",
+      "status": "PASS",
+      "value": {
+        "count_residual_thousands": 5.4569682106375694e-12,
+        "share_residual_pp": 5.684341886080802e-14
+      }
+    },
+    {
+      "detail": "The count-based calculation reproduces the publisher's within-age table.",
+      "expected": "maximum age-specific difference no greater than 1e-10 percentage points",
+      "name": "ehs_2016-17_published_percentage_reproduction",
+      "status": "PASS",
+      "value": 7.105427357601002e-15
+    },
+    {
+      "detail": "The shares are recomputed from unrounded weighted counts, never summed percentages.",
+      "expected": "three broad tenures close to the common 25-44 denominator",
+      "name": "ehs_2017-18_tenure_closure",
+      "status": "PASS",
+      "value": {
+        "count_residual_thousands": -1.8189894035458565e-12,
+        "share_residual_pp": -2.842170943040401e-14
+      }
+    },
+    {
+      "detail": "The count-based calculation reproduces the publisher's within-age table.",
+      "expected": "maximum age-specific difference no greater than 1e-10 percentage points",
+      "name": "ehs_2017-18_published_percentage_reproduction",
+      "status": "PASS",
+      "value": 1.7763568394002505e-15
+    },
+    {
+      "detail": "The shares are recomputed from unrounded weighted counts, never summed percentages.",
+      "expected": "three broad tenures close to the common 25-44 denominator",
+      "name": "ehs_2018-19_tenure_closure",
+      "status": "PASS",
+      "value": {
+        "count_residual_thousands": -1.1823431123048067e-11,
+        "share_residual_pp": -1.4210854715202004e-13
+      }
+    },
+    {
+      "detail": "The count-based calculation reproduces the publisher's within-age table.",
+      "expected": "maximum age-specific difference no greater than 1e-10 percentage points",
+      "name": "ehs_2018-19_published_percentage_reproduction",
+      "status": "PASS",
+      "value": 7.105427357601002e-15
+    },
+    {
+      "detail": "Post-2019 observations are excluded from the core.",
+      "expected": "11 EHS financial years from 2008-09 through 2018-19",
+      "name": "ehs_core_path",
+      "status": "PASS",
+      "value": 11
+    },
+    {
+      "detail": "The published all-age sample total is not mislabelled as the age-25-44 sample.",
+      "expected": "only 2013-14 lacks a published 25-44 unweighted sample size",
+      "name": "ehs_unweighted_sample_availability",
+      "status": "PASS",
+      "value": [
+        "2013-14"
+      ]
+    },
+    {
+      "detail": "The compact attribute file has a different schema from the full UK HPI file.",
+      "expected": "['Date', 'Region_Name', 'Area_Code', 'Index']",
+      "name": "hpi_schema",
+      "status": "PASS",
+      "value": [
+        "Date",
+        "Region_Name",
+        "Area_Code",
+        "Index"
+      ]
+    },
+    {
+      "detail": "Missing or duplicate months fail closed; no interpolation is permitted.",
+      "expected": "144 unique consecutive months from 2008-01-01",
+      "name": "hpi_england_months",
+      "status": "PASS",
+      "value": {
+        "count": 144,
+        "first": "2008-01-01",
+        "last": "2019-12-01"
+      }
+    },
+    {
+      "detail": "Buyer-status and financing cuts are not landlord identifiers.",
+      "expected": "England only with a positive unadjusted all-property index",
+      "name": "hpi_geography_and_domain",
+      "status": "PASS",
+      "value": {
+        "area_code": "E92000001",
+        "positive": true
+      }
+    },
+    {
+      "detail": "The observation value is v4_1; index and year-change rows share a file.",
+      "expected": "frozen version-25 long-format CSVW fields",
+      "name": "iphrp_schema",
+      "status": "PASS",
+      "value": [
+        "v4_1",
+        "Data Marking",
+        "mmm-yy",
+        "Time",
+        "administrative-geography",
+        "Geography",
+        "index-and-year-change",
+        "IndexAndYearChange"
+      ]
+    },
+    {
+      "detail": "Missing or duplicate months fail closed; no interpolation is permitted.",
+      "expected": "84 unique consecutive months from 2008-01-01",
+      "name": "iphrp_england_months",
+      "status": "PASS",
+      "value": {
+        "count": 84,
+        "first": "2008-01-01",
+        "last": "2014-12-01"
+      }
+    },
+    {
+      "detail": "Area code and publisher geography name must agree.",
+      "expected": "England only with a positive historical stock-rent index",
+      "name": "iphrp_geography_and_domain",
+      "status": "PASS",
+      "value": {
+        "geography": "England",
+        "positive_index": true
+      }
+    },
+    {
+      "detail": "The England region-or-country field is a marker and is not used as a filter.",
+      "expected": "40-column Table 1 with time, area, overall index, and rental price",
+      "name": "pipr_schema",
+      "status": "PASS",
+      "value": {
+        "columns": 40,
+        "required_present": true
+      }
+    },
+    {
+      "detail": "Missing or duplicate months fail closed; no interpolation is permitted.",
+      "expected": "60 unique consecutive months from 2015-01-01",
+      "name": "pipr_england_months",
+      "status": "PASS",
+      "value": {
+        "count": 60,
+        "first": "2015-01-01",
+        "last": "2019-12-01"
+      }
+    },
+    {
+      "detail": "Area code, publisher geography name, index, and rent must all agree.",
+      "expected": "England only with positive PIPR index and estimated monthly rent",
+      "name": "pipr_geography_and_domain",
+      "status": "PASS",
+      "value": {
+        "geography": "England",
+        "positive_index_and_rent": true
+      }
+    },
+    {
+      "detail": "The 2008 growth is missing because December 2007 is outside the extracted core.",
+      "expected": "12 annual means and 11 within-core December-to-December growth values",
+      "name": "hpi_annual_support",
+      "status": "PASS",
+      "value": {
+        "growth_years": 11,
+        "years": 12
+      }
+    },
+    {
+      "detail": "IPHRP and PIPR levels are never spliced; this ratio uses PIPR only.",
+      "expected": "60 matched months and January 2015 ratio exactly one",
+      "name": "price_rent_normalization",
+      "status": "PASS",
+      "value": {
+        "base": 1.0,
+        "months": 60
+      }
+    },
+    {
+      "detail": "Each flow uses the all-dwelling stock at the start of its financial year.",
+      "expected": "FY2008-09 through FY2018-19",
+      "name": "net_additions_core_years",
+      "status": "PASS",
+      "value": [
+        "2008-09",
+        "2009-10",
+        "2010-11",
+        "2011-12",
+        "2012-13",
+        "2013-14",
+        "2014-15",
+        "2015-16",
+        "2016-17",
+        "2017-18",
+        "2018-19"
+      ]
+    },
+    {
+      "detail": "Small source-table residuals are retained rather than silently forced to zero.",
+      "expected": "absolute published component residual no greater than 50 dwellings",
+      "name": "net_additions_component_reconciliation",
+      "status": "PASS",
+      "value": 13.0
+    },
+    {
+      "detail": "The query deliberately excludes daily Bank Rate to preserve monthly frequency.",
+      "expected": "['DATE', 'IUMBV34', 'IUMZID4']",
+      "name": "boe_schema",
+      "status": "PASS",
+      "value": [
+        "DATE",
+        "IUMBV34",
+        "IUMZID4"
+      ]
+    },
+    {
+      "detail": "Missing or duplicate months fail closed; no interpolation is permitted.",
+      "expected": "144 unique consecutive months from 2008-01-01",
+      "name": "boe_owner_months",
+      "status": "PASS",
+      "value": {
+        "count": 144,
+        "first": "2008-01-01",
+        "last": "2019-12-01"
+      }
+    },
+    {
+      "detail": "Missing or duplicate months fail closed; no interpolation is permitted.",
+      "expected": "96 unique consecutive months from 2012-01-01",
+      "name": "boe_common_support",
+      "status": "PASS",
+      "value": {
+        "count": 96,
+        "first": "2012-01-01",
+        "last": "2019-12-01"
+      }
+    },
+    {
+      "detail": "BTL values before January 2012 remain missing and are never filled.",
+      "expected": "at least 36 consecutive common-support months",
+      "name": "boe_registered_support_gate",
+      "status": "PASS",
+      "value": 96
+    },
+    {
+      "detail": "Missing BTL months remain null and are excluded from the positivity check.",
+      "expected": "all published quoted rates strictly positive",
+      "name": "boe_positive_rate_domain",
+      "status": "PASS",
+      "value": {
+        "owner_positive": true,
+        "published_btl_positive": true
+      }
+    },
+    {
+      "detail": "Annual BTL and spread values are missing unless all 12 months are available.",
+      "expected": "zero BTL months in 2008-2011 and twelve common months in every 2012-2019 year",
+      "name": "boe_annual_common_support",
+      "status": "PASS",
+      "value": [
+        0,
+        0,
+        0,
+        0,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12
+      ]
+    }
+  ],
+  "core_period": "England housing 2008-2019; GB/UK sources retain publisher geography",
+  "decision": "OPEN-SUBSET-REPRODUCED+FULL-GATE-A-HELD",
+  "derived_tables": [
+    {
+      "description": "Open-table broad-tenure point estimates; no public design covariance.",
+      "fields": [
+        "period",
+        "start_year",
+        "geography",
+        "population",
+        "denominator_households_thousands",
+        "unweighted_sample_size_25_44",
+        "unweighted_sample_status",
+        "owner_households_thousands",
+        "owner_share_pct",
+        "private_renter_households_thousands",
+        "private_renter_share_pct",
+        "social_renter_households_thousands",
+        "social_renter_share_pct",
+        "uncertainty_status",
+        "source_id"
+      ],
+      "filename": "ehs_tenure_25_44_england.csv",
+      "rows": 11,
+      "source_ids": [
+        "EHS_FA1201_OPEN"
+      ]
+    },
+    {
+      "description": "Unadjusted all-property England HPI monthly path.",
+      "fields": [
+        "date",
+        "geography",
+        "area_code",
+        "index",
+        "source_id"
+      ],
+      "filename": "hpi_monthly_england.csv",
+      "rows": 144,
+      "source_ids": [
+        "HMLR_UKHPI_INDICES_2026_05"
+      ]
+    },
+    {
+      "description": "Annual mean, normalized log level, and December-to-December log growth.",
+      "fields": [
+        "year",
+        "geography",
+        "arithmetic_mean_index",
+        "january_index",
+        "december_index",
+        "december_to_december_100_log_change",
+        "growth_support_status",
+        "source_id",
+        "log_annual_mean_normalized_2008"
+      ],
+      "filename": "hpi_annual_england.csv",
+      "rows": 12,
+      "source_ids": [
+        "HMLR_UKHPI_INDICES_2026_05"
+      ]
+    },
+    {
+      "description": "Historical stock-rent index segment; never level-spliced to PIPR.",
+      "fields": [
+        "date",
+        "geography",
+        "area_code",
+        "index",
+        "method_segment",
+        "source_id"
+      ],
+      "filename": "rent_iphrp_2008_2014_england.csv",
+      "rows": 84,
+      "source_ids": [
+        "ONS_IPHRP_HIST_V25"
+      ]
+    },
+    {
+      "description": "PIPR stock-rent index segment and published estimated monthly rent.",
+      "fields": [
+        "date",
+        "geography",
+        "area_code",
+        "index",
+        "estimated_monthly_rent_gbp",
+        "method_segment",
+        "source_id"
+      ],
+      "filename": "rent_pipr_2015_2019_england.csv",
+      "rows": 60,
+      "source_ids": [
+        "ONS_PIPR_2026_07_22"
+      ]
+    },
+    {
+      "description": "January-2015-normalized relative index; not a rental yield.",
+      "fields": [
+        "date",
+        "geography",
+        "hpi_normalized_jan2015",
+        "stock_rent_index_normalized_jan2015",
+        "price_to_stock_rent_index",
+        "stock_rent_to_price_index",
+        "interpretation",
+        "source_ids"
+      ],
+      "filename": "price_to_stock_rent_2015_2019_england.csv",
+      "rows": 60,
+      "source_ids": [
+        "HMLR_UKHPI_INDICES_2026_05",
+        "ONS_PIPR_2026_07_22"
+      ]
+    },
+    {
+      "description": "Financial-year net additions divided by start-of-year all-dwelling stock.",
+      "fields": [
+        "financial_year",
+        "start_year",
+        "geography",
+        "new_build_completions",
+        "net_conversions",
+        "net_change_of_use",
+        "net_other_gains",
+        "demolitions",
+        "census_adjustments",
+        "net_additional_dwellings",
+        "published_component_residual",
+        "stock_reference_date",
+        "start_of_year_all_dwellings",
+        "net_additions_rate_pct",
+        "denominator_note",
+        "source_ids"
+      ],
+      "filename": "net_additions_2008_2018_england.csv",
+      "rows": 11,
+      "source_ids": [
+        "MHCLG_DWELLING_STOCK_LT104_2026_05",
+        "MHCLG_NET_SUPPLY_LT120_2025_11"
+      ]
+    },
+    {
+      "description": "Monthly quoted owner and BTL rates; missing BTL months remain blank.",
+      "fields": [
+        "date",
+        "publisher_date",
+        "geography",
+        "owner_2y_fixed_75ltv_pct",
+        "btl_2y_fixed_75ltv_pct",
+        "btl_minus_owner_spread_pp",
+        "interpretation",
+        "source_id"
+      ],
+      "filename": "quoted_mortgage_rates_2008_2019_uk.csv",
+      "rows": 144,
+      "source_ids": [
+        "BOE_QUOTED_RATES_2008_2019"
+      ]
+    },
+    {
+      "description": "Annual arithmetic means; BTL and spread require all 12 common-support months.",
+      "fields": [
+        "year",
+        "geography",
+        "owner_support_months",
+        "owner_2y_fixed_75ltv_annual_mean_pct",
+        "btl_common_support_months",
+        "btl_2y_fixed_75ltv_annual_mean_pct",
+        "btl_minus_owner_annual_mean_spread_pp",
+        "common_support_status",
+        "interpretation",
+        "source_id"
+      ],
+      "filename": "quoted_mortgage_rates_annual_2008_2019_uk.csv",
+      "rows": 12,
+      "source_ids": [
+        "BOE_QUOTED_RATES_2008_2019"
+      ]
+    }
+  ],
+  "facts": {
+    "AF01_OWNER_25_44_POINT": {
+      "base_pct": 60.527006694039635,
+      "base_period": "2008-09",
+      "change_pp": -11.948671700740839,
+      "end_pct": 48.578334993298796,
+      "end_period": "2018-19",
+      "geography": "England",
+      "population": "private households with HRP age 25-44",
+      "uncertainty": "design covariance unavailable in open table",
+      "viewing_status": "previously observed during feasibility"
+    },
+    "AF02_PRS_25_44_POINT": {
+      "base_pct": 22.132458527234146,
+      "base_period": "2008-09",
+      "change_pp": 12.326943671484738,
+      "end_pct": 34.459402198718884,
+      "end_period": "2018-19",
+      "geography": "England",
+      "population": "private households with HRP age 25-44",
+      "uncertainty": "design covariance unavailable in open table",
+      "viewing_status": "previously observed during feasibility"
+    },
+    "AF03_BROAD_TENURE_PATH": {
+      "fine_tenure_and_covariance": "EUL blocked",
+      "status": "point-estimate path reproduced for owner/private/social only",
+      "years": 11
+    },
+    "AF07_HPI_PATH": {
+      "base_date": "2008-01-01",
+      "base_index": 63.3,
+      "end_date": "2019-12-01",
+      "end_index": 82.0,
+      "endpoint_100_log_change": 25.88339181141226,
+      "endpoint_pct_change": 29.541864139020536,
+      "geography": "England"
+    },
+    "AF08_RENT_SEGMENTS": {
+      "geography": "England",
+      "iphrp_pct_change": 12.655367231638426,
+      "iphrp_period": "2008-01-01 to 2014-12-01",
+      "level_splice": "prohibited",
+      "pipr_pct_change": 11.938990378609503,
+      "pipr_period": "2015-01-01 to 2019-12-01"
+    },
+    "AF09_PRICE_RENT_INDEX": {
+      "geography": "England",
+      "interpretation": "normalized relative index; not a gross or net rental yield",
+      "period": "2015-01-01 to 2019-12-01",
+      "price_to_stock_rent_pct_change": 9.334611012249884,
+      "stock_rent_to_price_pct_change": -8.537654202843449,
+      "viewing_status": "previously observed during feasibility"
+    },
+    "AF11_NET_ADDITIONS": {
+      "denominator": "all dwellings including vacant dwellings at start of FY",
+      "first_period": "2008-09",
+      "first_rate_pct": 0.8118995500695748,
+      "geography": "England",
+      "last_period": "2018-19",
+      "last_rate_pct": 1.0232565938382165
+    },
+    "AF12_MORTGAGE_COST": {
+      "annual_btl_and_spread_complete_years": 8,
+      "annual_owner_path_years": 12,
+      "common_end": "2019-12-01",
+      "common_months": 96,
+      "common_start": "2012-01-01",
+      "first_spread_pp": 2.0100000000000002,
+      "geography": "United Kingdom",
+      "interpretation": "quoted product rates; not realized borrower costs",
+      "last_spread_pp": 0.51,
+      "mean_spread_pp": 1.2572916666666665
+    }
+  },
+  "figure_files": [
+    "figures/figure_1_tenure_25_44.pdf",
+    "figures/figure_1_tenure_25_44.svg",
+    "figures/figure_2_price_stock_rent.pdf",
+    "figures/figure_2_price_stock_rent.svg",
+    "figures/figure_3_supply_and_rates.pdf",
+    "figures/figure_3_supply_and_rates.svg"
+  ],
+  "full_gate_a_authorized": false,
+  "manifest_sha256": "3e1f92e436e3744d6702d8314c9f4c0f5602898d5b996f9a60fa0010af291c90",
+  "protocol_version": "public-pilot-0.1+amendments-01-03",
+  "schema_version": "0.1",
+  "source_receipts_file": "SOURCE_RECEIPTS.json",
+  "table_metadata_file": "TABLE_METADATA.json"
+}

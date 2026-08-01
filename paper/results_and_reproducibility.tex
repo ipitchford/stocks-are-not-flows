@@ -1,0 +1,407 @@
+% Results and reproducibility fragment.  The parent document must load booktabs.
+% Digests are grouped only to permit line breaking; the rendered hexadecimal
+% strings contain no spaces.
+\providecommand{\artifactdigest}[8]{{\footnotesize\ttfamily
+  #1\allowbreak{}#2\allowbreak{}#3\allowbreak{}#4\allowbreak{}%
+  #5\allowbreak{}#6\allowbreak{}#7\allowbreak{}#8}}
+\providecommand{\commitdigest}[5]{{\ttfamily
+  #1\allowbreak{}#2\allowbreak{}#3\allowbreak{}#4\allowbreak{}#5}}
+
+\section{Results}
+\label{sec:results}
+
+The empirical programme was governed by a sequence of stopping rules rather
+than by an obligation to produce a structural estimate.  The first rule tested
+whether the planned aggregate observation schedule could distinguish a latent
+top non-housing resource-flow amplitude, denoted $z_T$ (machine label
+\texttt{z\_top}), from six
+maintained blocks and four deliberately adversarial omitted mechanisms.  That
+test returned \texttt{FAIL-IDENT-0}.  The failure stopped the registered
+minimum executable structural model and any unique historical attribution.
+We therefore report three objects with different evidential status: the
+authoritative IDENT-0 design diagnostic, a licence-safe reproduction of an
+open public-accounting subset, and a deterministic design-geometry
+certificate.  None is a causal estimate of wealth-driven tenure change.
+
+\subsection{IDENT-0: local rank without mechanism specificity}
+\label{sec:ident0-results}
+
+The authoritative v2 run adapted all 57 registered targets to their declared
+public units and assigned a unique valid accounting receipt to each of 313
+closure cases.  The maintained seven-column response matrix passed the local
+rank front at all 64 design points and at each of three central-difference step
+sizes.  Across those evaluations, the scaled condition number ranged from
+$62.3556$ to $64.0830$.  The known-negative controls behaved as registered:
+exact top--middle collinearity reduced rank from seven to six, near
+collinearity raised the condition number above $3.418\times10^{8}$, and an
+exact top mimic was detected.
+
+These checks establish that the restricted maintained design is numerically
+non-degenerate; they do not establish specificity.  In the adversarial part of
+the harness, three of four deliberately constructed omitted-mechanism cases
+induced a $z_{\mathrm{top}}$ profile that excluded zero when fit by the
+restricted seven-block model.  This is a deterministic stress-harness result,
+not a population frequency or a false-positive rate.  In none of the four
+cases was $z_{\mathrm{top}}$ co-largest in absolute value, and all 32 starts in
+each case converged to the same basin.  The three missing observation maps---
+owner and landlord prices to aggregate HPI, dwelling stocks to household
+tenure, and lifecycle states to the age-25--44 population---were independent
+reasons to fail the gate.  Table~\ref{tab:ident0-criteria} records the
+controlling criteria.
+
+\begin{table*}[t]
+  \centering
+  \caption{Authoritative IDENT-0 v2 criteria.}
+  \label{tab:ident0-criteria}
+  \small
+  \begin{tabular}{@{}p{0.255\textwidth}cp{0.255\textwidth}p{0.355\textwidth}@{}}
+    \toprule
+    Criterion & Status & Registered threshold or control & Realised value and interpretation \\
+    \midrule
+    Public-unit observation schedule
+      & Pass & 57 targets adapted; no pending adapter
+      & 57 targets; H05 retained as an explicit non-modelled holdout. \\
+    Signed closure coverage
+      & Pass & One unique, valid receipt for every case
+      & 313/313 cases, using the registered elementary, composite-open, or no-change taxonomy. \\
+    Maintained local identification
+      & Pass & At least 61/64 rank-seven points; midpoint must pass
+      & 64/64 points passed at all three step sizes; scaled condition numbers $62.3556$--$64.0830$. \\
+    Exact- and near-collinearity controls
+      & Pass & Exact mutation must lose rank; near mutation must exceed $10^{4}$
+      & Exact ranks $6,6,6$; near-collinear condition numbers approximately $3.418\times10^{8}$. \\
+    Constructed-rival zero-profile diagnostic
+      & Fail & No more than 0.05 of the four registered profiles may exclude zero
+      & 3/4 profiles excluded zero.  This proportion describes four constructed cases only. \\
+    Constructed-rival top-largest diagnostic
+      & Pass & No more than 0.10 may make $z_{\mathrm{top}}$ co-largest
+      & 0/4 cases made $z_{\mathrm{top}}$ co-largest. \\
+    Constructed-rival optimiser stability
+      & Pass & At least 30/32 starts per case in the same basin
+      & 32/32 for each of four cases. \\
+    Exact top-mimic detection control
+      & Pass & Harness must expose attribution under identical labels
+      & The control returned $\widehat z_{\mathrm{top}}=0.65$ and profile $[0.375,0.925]$. \\
+    Three observation bridges
+      & Fail & Each bridge must be executable
+      & All three were \texttt{NOT\_IMPLEMENTED}: HPI aggregation, dwelling-to-household tenure, and age-25--44 lifecycle aggregation. \\
+    \bottomrule
+  \end{tabular}
+  \parbox{0.96\textwidth}{\footnotesize
+    Notes: the machine report contains 12 criteria in total: eight pass and
+    four fail.  The final row consolidates three separately recorded failures.
+    Synthetic response coefficients, terminal wealth loadings, and diagonal
+    scales are recovery-design inputs, not empirical elasticities or sampling
+    standard errors.}
+\end{table*}
+
+Because the fail-fast front was decisive, the precomputed full-stage workload
+of 6,573 fits and 210,336 optimiser starts was not run.  In particular, the
+313-case recovery aggregation, noisy-fit coverage and classification checks,
+64-case profile aggregation, rival-compensation tests, outer optimiser rule,
+structural mutations, and the P5 landlord-yield signature remain unexecuted.
+The run did not issue, and could not be read as issuing, a pass for unique
+attribution.
+
+\subsection{Gate A: reproduced public accounting, with the full gate held}
+\label{sec:gatea-results}
+
+After the identification stop, Gate A was restricted to deterministic
+accounting over seven official public sources.  All seven downloaded objects
+matched their prospectively frozen SHA-256 digests, and all 43 schema, support,
+closure, and arithmetic checks passed.  This produced nine derived tables and
+three figures in PDF and SVG.  Its only authorised success label was
+\texttt{OPEN-SUBSET-REPRODUCED+FULL-GATE-A-HELD}; the runner had no code path
+to authorise structural estimation, unique attribution, or causal language.
+
+For private households in England whose household reference person was aged
+25--44, the open English Housing Survey table gives an owner point estimate of
+$60.5270\%$ in 2008--09 and $48.5783\%$ in 2018--19, a change of
+$-11.9487$ percentage points (Table~\ref{tab:accounting-facts}).  The private-
+renter estimate moved from $22.1325\%$ to $34.4594\%$, or $+12.3269$
+percentage points; the social-renter estimate changed by $-0.3783$ percentage
+points.  These shares were recomputed from unrounded weighted counts over a
+common denominator.  The maximum discrepancy from published age-specific
+percentages was $1.99\times10^{-13}$ percentage points, and the largest
+absolute three-tenure closure residual was $2.84\times10^{-13}$ percentage
+points.  The public table supplies neither the design covariance needed for
+joint inference nor the registered fine-tenure categories, so these are point
+estimates without confidence intervals.
+
+The England all-property HPI rose from 63.3 in January 2008 to 82.0 in
+December 2019, an endpoint change of $29.5419\%$ (or $25.8834$ log points).
+The historical IPHRP stock-rent segment rose $12.6554\%$ over 2008--2014, and
+the methodologically separate PIPR segment rose $11.9390\%$ over 2015--2019.
+Those levels were not spliced.  On their common 2015--2019 support, normalising
+both HPI and PIPR to January 2015 yields a price-to-stock-rent relative index
+that rose $9.3346\%$; its reciprocal fell $8.5377\%$.  This relative index is
+not a gross or net rental yield.
+
+Net additions increased from $0.8119\%$ of the start-of-year dwelling stock in
+2008--09 to $1.0233\%$ in 2018--19.  The denominator is all dwellings,
+including vacant dwellings, and is not interchangeable with the household
+denominator used for tenure.  The maximum absolute residual between the
+published net-additions total and its components was 13 dwellings, below the
+pre-run quality-control tolerance of 50.  Finally, on the 96-month common
+support from January 2012 to December 2019, the quoted two-year fixed 75\% LTV
+buy-to-let minus owner-occupier mortgage-rate spread declined from 2.01 to
+0.51 percentage points and averaged 1.2573 points.  These are United Kingdom
+quoted product rates, not realised borrowing costs for English households.  The
+publisher's 2019 change from sampled end-month observations to whole-market
+monthly averages is a measurement break, so the series is retained only as a
+descriptive diagnostic rather than interpreted as a policy or market shock.
+
+\begin{table*}[t]
+  \centering
+  \caption{Reproduced Gate A public-accounting facts.}
+  \label{tab:accounting-facts}
+  \small
+  \begin{tabular}{@{}p{0.215\textwidth}p{0.335\textwidth}p{0.365\textwidth}@{}}
+    \toprule
+    Registered fact & Reproduced accounting result & Interpretation ceiling \\
+    \midrule
+    AF01: owner tenure, HRP 25--44
+      & $60.5270\%$ (2008--09) to $48.5783\%$ (2018--19); $-11.9487$ percentage points
+      & England point estimates; public design covariance unavailable. \\
+    AF02: private renting, HRP 25--44
+      & $22.1325\%$ to $34.4594\%$; $+12.3269$ percentage points
+      & Same household denominator and uncertainty restriction as AF01. \\
+    AF03: broad-tenure path
+      & 11 financial years, 2008--09 to 2018--19; owner/private/social only
+      & Fine tenure and joint covariance remain EUL-blocked. \\
+    AF07: England HPI
+      & 63.3 (January 2008) to 82.0 (December 2019); $+29.5419\%$
+      & Unadjusted all-property index; not a landlord-specific price. \\
+    AF08: stock-rent segments
+      & IPHRP $+12.6554\%$ (2008--2014); PIPR $+11.9390\%$ (2015--2019)
+      & Separate method segments; no level splice. \\
+    AF09: normalised price/stock-rent index
+      & $+9.3346\%$ over January 2015--December 2019; reciprocal $-8.5377\%$
+      & A relative index, not a rental yield. \\
+    AF11: net additions rate
+      & $0.8119\%$ (2008--09) to $1.0233\%$ (2018--19)
+      & Flow divided by start-of-year all-dwelling stock, including vacant dwellings. \\
+    AF12: quoted mortgage-cost diagnostic
+      & 96 common months; BTL-minus-owner spread 2.01 to 0.51 points; mean 1.2573
+      & UK quoted offers, not realised England borrower costs. \\
+    \bottomrule
+  \end{tabular}
+  \parbox{0.96\textwidth}{\footnotesize
+    Notes: EHS endpoints and the 2015--2019 HPI/PIPR endpoint had been viewed
+    during feasibility work.  Their manifest-bound calculation is therefore a
+    reproduction of previously observed accounting facts, not an untouched
+    directional confirmation.  Passing arithmetic checks authenticates the
+    registered transformation; it does not validate a causal mechanism.}
+\end{table*}
+
+Full Gate A remains held.  The open EHS table lacks design covariance and fine
+tenure; net non-housing wealth by rank and tenure requires Wealth and Assets
+Survey EUL microdata; the Price Paid Data turnover module requires an audited
+England/Wales concordance; and source-backed rival response sets remain absent.
+The FCA mortgage table and the English Private Landlord Survey are bounded
+extensions rather than inputs to this run.  Most importantly, the unrestricted
+open core does not jointly label gross property-use transitions, purchaser
+landlord identity, and purchaser top non-housing resources.  Existing
+proprietary and safeguarded listing linkages remain relevant prior evidence;
+their existence also precludes any claim that property-use flows have never
+been measured.
+
+\subsection{Partial identification: a design-geometry obstruction}
+\label{sec:partialid-results}
+
+The post-gate certificate asks whether the focal response column has a
+component outside the span of the other six maintained columns and the four
+admitted rival signatures.  Within the maintained 57-by-7 matrix, rank is
+seven in both public units and the prospectively frozen synthetic diagonal scaling.
+After adding four rival columns, the 57-by-11 matrix has rank nine.  Projection
+of the focal $z_{\mathrm{top}}$ column onto the ten nuisance and rival columns
+leaves relative residuals of $1.461\times10^{-14}$ in public units and
+$2.323\times10^{-14}$ after synthetic scaling, both far below the registered
+$2\times10^{-10}$ effective tolerance (Table~\ref{tab:geometry-certificate}).
+No dual discriminator exists at that tolerance.
+
+\begin{table}[t]
+  \centering
+  \caption{Partial-identification design-geometry v1 certificate.}
+  \label{tab:geometry-certificate}
+  \small
+  \begin{tabular}{@{}lrrrr@{}}
+    \toprule
+    Basis & Maintained rank & Condition no. & Augmented rank & Relative residual \\
+    \midrule
+    Public units & $7/7$ & $68.8814$ & $9/11$ & $1.46097\times10^{-14}$ \\
+    Synthetic scaling & $7/7$ & $63.3405$ & $9/11$ & $2.32265\times10^{-14}$ \\
+    \bottomrule
+  \end{tabular}
+  \parbox{0.94\columnwidth}{\footnotesize
+    Notes: columns are individually normalised for the span calculation.  The
+    maximum absolute difference between the analytic public-unit derivative
+    and its central-difference control was $1.34432\times10^{-9}$.  The
+    augmented condition number is intentionally not reported because the
+    augmented matrix is rank-deficient.}
+\end{table}
+
+The certificate decision is
+\texttt{STOP-UNIQUE+GO-PARTIAL-ID-THEORY}.  It reconciles two facts that would
+otherwise appear contradictory: the focal coefficient is locally recoverable
+inside the restricted maintained matrix, yet is not identified against the
+enlarged admitted span.  This is a deterministic algebraic statement about
+the supplied columns.  All maintained loadings, baselines, scales, and rival
+signatures are synthetic design inputs, and the four rivals are constructed
+stress cases rather than draws from any population.  No response set in this
+certificate has been independently source-backed or transported to England.
+Consequently, the certificate supplies neither an England elasticity nor an
+empirical interval for the historical contribution of top resources.
+
+The accompanying linear-programming layer can compute a sharp interval for a
+focal coefficient conditional on an observed response equation and declared
+box restrictions on nuisance coefficients.  Promotion of such an interval to
+an empirical England bound would require independently sourced mechanism
+response sets, explicit geography/time/population/unit transport sets, and
+sensitivity to enlarging the rival set and relaxing its boxes.  Those inputs
+do not yet exist, so no numerical England contribution bound is reported.
+
+\clearpage
+
+\section{Reproducibility and assurance}
+\label{sec:reproducibility}
+
+\subsection{Immutable run identities}
+
+Every reported run required a clean Git worktree and recorded the command,
+commit, configuration and source-code digests, Python platform, NumPy and SciPy
+versions, and the fixed provenance seed 20260801.  IDENT-0 v2 ran at commit
+\commitdigest{1e04a181}{78310505}{1c819af1}{90b95463}{40bbb1fd}; Gate A v2, its offline
+replay, and the partial-ID certificate ran at commit
+\commitdigest{836e3391}{355f8443}{8af0d321}{f69e9428}{1050c00d}.  The authoritative identities
+are:
+
+\begin{table*}[t]
+  \centering
+  \caption{Manifest- and report-bound run identities.}
+  \label{tab:run-identities}
+  \small
+  \begin{tabular}{@{}p{0.18\textwidth}p{0.345\textwidth}p{0.345\textwidth}@{}}
+    \toprule
+    Run & Manifest SHA-256 & Report SHA-256 \\
+    \midrule
+    IDENT-0 v2
+      & \artifactdigest{a23d17ea}{471eb7ed}{67a96e34}{b5fb85f7}{c50b34c7}{e2319874}{98ed3696}{3220ccda}
+      & \artifactdigest{049ec5f8}{c3e290d1}{c0273c86}{30e3c8d1}{eeee8c21}{91427fcd}{97428030}{60bfca35} \\
+    Gate A v2, online
+      & \artifactdigest{3e1f92e4}{36e3744d}{6702d831}{4c9f4c0f}{5602898d}{5b996f9a}{60fa0010}{af291c90}
+      & \artifactdigest{97925770}{879ca8f9}{e356c067}{c9d9c6b4}{b98d5d09}{81133544}{85002bed}{8bcc2f08} \\
+    Gate A v2, offline replay
+      & \artifactdigest{f00bfcac}{e904d7a3}{cb6fcb87}{46d1fb03}{46b38e74}{de6d6722}{4d868ccb}{0a03a57b}
+      & \artifactdigest{51aa01e7}{a0b2fe14}{aed73e3d}{3ff43b53}{3637f1e4}{3f91a0bc}{96598ef5}{4f1cc530} \\
+    Design geometry v1
+      & \artifactdigest{7e76a293}{0297e0b1}{3ad2cd6a}{a1a6a4a4}{3cbe0a47}{8da24050}{11a30fad}{baf51b5d}
+      & \artifactdigest{421ce83b}{335bf610}{e2f7fa3c}{fb178b6a}{2ebc7620}{098d05b9}{f5601d16}{4cb1d7fc} \\
+    \bottomrule
+  \end{tabular}
+\end{table*}
+
+The seven official Gate A source objects were also pinned before extraction
+(Table~\ref{tab:source-digests}).  A matching digest establishes byte identity
+with the registered source object; it does not establish survey validity,
+measurement accuracy, or a causal interpretation.
+
+\begin{table*}[t]
+  \centering
+  \caption{Registered source-object digests for Gate A v2.}
+  \label{tab:source-digests}
+  \scriptsize
+  \begin{tabular}{@{}p{0.29\textwidth}p{0.58\textwidth}@{}}
+    \toprule
+    Source object & SHA-256 \\
+    \midrule
+    EHS FA1201 open table
+      & \artifactdigest{f095268b}{6330ec5e}{4733b047}{4f53d8b7}{9d7a6932}{dc939e0b}{65196799}{d54252ac} \\
+    HM Land Registry HPI indices, May 2026
+      & \artifactdigest{cacaef81}{b8f09c0b}{1c67c9a8}{a7c07713}{4384a1be}{4dd1b1dd}{f26a9c52}{656620a5} \\
+    ONS historical IPHRP time series, version 25
+      & \artifactdigest{bf87cfd2}{93323df5}{c558a203}{635d69c1}{6b9b1c48}{485d410a}{fc19563c}{016228f1} \\
+    ONS PIPR workbook, 22 July 2026
+      & \artifactdigest{d429e553}{ade45490}{3b731f6c}{257609f1}{4d0c2171}{822791e0}{9c21a9d5}{3d5e24a9} \\
+    MHCLG dwelling stock Live Table 104
+      & \artifactdigest{ecd02eb8}{e520e4fe}{f7878bda}{35db002c}{a2360cb4}{5112416d}{b6619863}{b211a1fa} \\
+    MHCLG net supply Live Table 120
+      & \artifactdigest{548101e5}{35b7db4e}{0718a1ef}{3129e343}{169cb398}{2f1cd8e0}{3c0f247e}{93c5d219} \\
+    Bank of England quoted-rate extract
+      & \artifactdigest{d5c17cab}{c1103c33}{96695f38}{9c6384b7}{45ce58e8}{f4f07787}{f83d82a6}{2127f009} \\
+    \bottomrule
+  \end{tabular}
+\end{table*}
+
+\subsection{Online acquisition and offline replay}
+
+Gate A v2 was first run against the registered official HTTPS locations and
+then rerun using only the immutable raw directory from the online run.  The
+seven raw files, all nine derived CSVs, all six rendered figure files, and
+\texttt{TABLE\_METADATA.json} were byte-identical across the two runs.  The
+scientific content of \texttt{REPORT.json} was also identical after excluding
+its run-manifest digest.  The complete report and directory digests differ by
+design: the online and offline manifests record different commands, and their
+source receipts record official-HTTPS retrieval versus offline-cache replay.
+This is therefore an exact replay of the pinned scientific payload, not a claim
+that provenance-bearing directories are byte-for-byte identical.
+
+From the repository root, the manifest-recorded commands (with the local
+virtual-environment prefix shortened to \texttt{.venv/bin}) are:
+
+\begin{quote}
+\footnotesize\ttfamily
+.venv/bin/housing-ident0 --config configs/ident0.json\par
+\quad --output-dir results/ident0/20260801-ident0-failfast-v2\par
+\quad --exit-zero-on-scientific-fail\par\medskip
+.venv/bin/housing-gatea --config configs/gatea\_public.json\par
+\quad --output-dir results/gatea/20260801-open-subset-v2\par\medskip
+.venv/bin/housing-gatea --config configs/gatea\_public.json\par
+\quad --offline-source-dir results/gatea/20260801-open-subset-v2/raw\par
+\quad --output-dir results/gatea/20260801-open-subset-v2-replay\par\medskip
+.venv/bin/housing-partialid --config configs/ident0.json\par
+\quad --ident0-report results/ident0/20260801-ident0-failfast-v2/REPORT.json\par
+\quad --output-dir results/partialid/20260801-design-geometry-v1
+\end{quote}
+
+The IDENT-0 option \texttt{--exit-zero-on-scientific-fail} changes only the
+shell exit status used by the release workflow; it does not change the
+\texttt{FAIL-IDENT-0} decision written into the report.  The Gate A downloader
+fails closed on host, media-type, byte-ceiling, schema, support, and digest
+drift.  Scientific invariants use explicit exceptions rather than Python
+\texttt{assert}, and the focused test protocols include optimised
+\texttt{python -O} execution so that disabling assertions cannot erase those
+checks.
+
+\subsection{Assurance boundary and remaining work}
+\label{sec:assurance-boundary}
+
+The combined evidence supports three deliberately narrow conclusions.  First,
+the prospectively frozen aggregate design does not support unique attribution of
+England's tenure change to the focal resource mechanism once the registered
+adversarial rivals and missing observation bridges are taken seriously.
+Second, a bounded collection of public tenure, price, rent, housing-supply, and
+quoted-rate paths is reproducible from pinned official bytes.  Third, within
+the synthetic design harness, the focal response lies in the enlarged nuisance
+and rival span at the registered numerical tolerance.
+
+It does not support a causal top-wealth-to-tenure claim, a historical
+contribution percentage, a general-equilibrium result, an empirical England
+elasticity, or an England partial-identification interval.  Hashes authenticate
+the bytes and declared replay boundary, not the correctness of publisher
+methods or the truth of an economic mechanism.  Deterministic replay is not
+independent replication.  Likewise, agreement between an analytic derivative
+and a finite-difference control validates an implementation detail, not its
+empirical calibration.
+
+An empirical promotion would require, at minimum, survey-design covariance and
+fine-tenure microdata; net financial plus business wealth by resource rank and
+tenure; an audited map between dwelling flows and household tenure; direct or
+defensibly bounded purchaser-resource information; and independently
+source-backed response sets for every admitted mechanism with explicit
+transport across geography, period, population, unit, and scale.  Until those
+conditions are met, the appropriate endpoint is the present identification
+audit and public-accounting package, with \texttt{STOP-UNIQUE} and
+\texttt{STOP-CAUSE} retained.
+
+\clearpage

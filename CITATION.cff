@@ -1,0 +1,41 @@
+# SPDX-License-Identifier: CC0-1.0
+cff-version: 1.2.0
+message: >-
+  Cite this work as an anonymous, unrefereed public discussion preprint and
+  preserve its identification and assurance boundary.
+title: >-
+  Stocks Are Not Flows: An Identification Audit of Investor Pressure and
+  Tenure Change in England
+type: dataset
+authors:
+  - name: Anonymous
+abstract: >-
+  Reproducible identification audit showing that public English tenure, price,
+  rent, supply, and aggregate mortgage-rate series do not uniquely distinguish
+  top-resource investor pressure from admitted rival mechanisms. The package
+  reports no causal coefficient or historical contribution share.
+version: 1.0.0
+date-released: 2026-08-01
+license: CC0-1.0
+doi: 10.5281/zenodo.21740339
+repository-code: https://github.com/ipitchford/stocks-are-not-flows
+url: https://doi.org/10.5281/zenodo.21740339
+keywords:
+  - housing tenure
+  - private renting
+  - wealth inequality
+  - structural identification
+  - partial identification
+  - reproducible research
+preferred-citation:
+  type: unpublished
+  title: >-
+    Stocks Are Not Flows: An Identification Audit of Investor Pressure and
+    Tenure Change in England
+  authors:
+    - name: Anonymous
+  year: 2026
+  version: 1.0.0
+  status: preprint
+  doi: 10.5281/zenodo.21740339
+  url: https://doi.org/10.5281/zenodo.21740339
